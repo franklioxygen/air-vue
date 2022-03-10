@@ -1,81 +1,64 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Header from "./components/common/Header.vue";
+import LeftNav from "./components/common/LeftNav.vue";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="header-wrapper">
+    <Header msg="VU" />
+  </div>
+  <div class="grid-x container">
+    <div class="cell large-3 show-for-large left-nav">
+      <LeftNav />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <div class="cell large-auto small-auto content">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
-<style>
-@import './assets/base.css';
-
+<style lang="scss">
 #app {
   max-width: 1280px;
-  margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
+  height: calc(100vh - 60px);
 }
-
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.container {
+  height: 100%;
+  .left-nav {
+    min-width: 220px;
+    height: 100%;
+    border-right: 1px solid $grey-light;
+    overflow-y: scroll;
+  }
+  .content {
+    padding-left: 10px;
+    width: 100%;
+  }
 }
 
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: $green;
   transition: 0.4s;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>
