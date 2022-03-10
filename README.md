@@ -1,6 +1,6 @@
 ## VU
 
-<img width="534" alt="screenshot" src="https://user-images.githubusercontent.com/2637636/157754833-ffee0752-a6a5-4590-aafa-2078e1291466.png">
+<img alt="screenshot" src="https://user-images.githubusercontent.com/2637636/157754833-ffee0752-a6a5-4590-aafa-2078e1291466.png">
 
 WIP: This is a Vue Component Library
 
