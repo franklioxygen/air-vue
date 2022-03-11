@@ -8,10 +8,10 @@ import LeftNav from "./components/common/LeftNav.vue";
     <Header msg="VU" />
   </div>
   <div class="grid-x container">
-    <div class="cell large-3 show-for-large left-nav">
+    <div class="cell show-for-large left-nav">
       <LeftNav />
     </div>
-    <div class="cell large-auto small-auto content">
+    <div class="cell content">
       <router-view></router-view>
     </div>
   </div>
@@ -20,21 +20,34 @@ import LeftNav from "./components/common/LeftNav.vue";
 <style lang="scss">
 #app {
   max-width: 1280px;
-  padding: 2rem;
   font-weight: normal;
   height: calc(100vh - 60px);
-}
-.container {
-  height: 100%;
-  .left-nav {
-    min-width: 220px;
-    height: 100%;
-    border-right: 1px solid $grey-light;
-    overflow-y: scroll;
-  }
-  .content {
-    padding-left: 10px;
+  .header-wrapper {
+    position: fixed;
     width: 100%;
+    background: var(--color-background-soft);
+    transition: color 0.5s, background-color 0.5s;
+    z-index: 30;
+  }
+  .container {
+    height: 100%;
+    top: 80px;
+    .left-nav {
+      position: fixed;
+      width: 220px;
+      height: 100%;
+      overflow-y: scroll;
+      padding: 20px 20px 120px 20px;
+    }
+    .content {
+      left: 220px;
+      padding: 20px 20px 80px 20px;
+      width: calc(100% - 220px);
+      .hljs {
+        background: var(--color-code-background);
+        padding: 0 20px 0 20px;
+      }
+    }
   }
 }
 
@@ -51,14 +64,14 @@ a,
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--color-background-mute);
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--color-border);
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--color-border-hover);
 }
 </style>

@@ -1,4 +1,4 @@
-<template>Dropdown Filter</template>
+<template>searchbar</template>
 
 <script>
 export default {};

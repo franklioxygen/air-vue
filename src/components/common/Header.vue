@@ -18,12 +18,14 @@ defineProps({
 .greetings {
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 80%, 0.2);
-  margin-bottom: 3px;
-  padding-bottom: 10px;
+  margin-bottom: 0px;
+  padding: 20px;
+  background: --color-background;
   > * {
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
+    margin-bottom: 0;
   }
   h1 {
     font-weight: 500;

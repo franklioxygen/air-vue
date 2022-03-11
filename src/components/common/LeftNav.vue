@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="nav-container">
     <router-link v-for="(route, id) in routes" :to="route.path" :key="id">{{
       route.name
     }}</router-link>
@@ -11,8 +11,8 @@ import routes from "../../router/routes";
 </script>
 
 <style lang="scss" scoped>
-.container {
-  border-right: 1px solid $grey-light;
+.nav-container {
+  // border-right: 1px solid $grey-light;
   a {
     display: block;
     color: $green;
