@@ -1,7 +1,78 @@
-<template>searchbar</template>
+<template>
+  <h3>Search Bar</h3>
+  <p>Search Bar is used to search.</p>
+  <h5>Demo:</h5>
+  <div class="demo-wrapper">
+    <SearchBar
+      width="200px"
+      :search-props="searchProps"
+      @submit-search="submitSearch"
+    />
+    <div>
+      This is the value return from Search:
+      {{ searchEventReturnValue.returnValue }}
+    </div>
+  </div>
+  <h5>Usage:</h5>
+  <h6>Import:</h6>
+  <highlightjs language="js" :code="importCode" />
+  <h6>Apply in template：</h6>
+  <highlightjs language="js" :code="templateCode" />
+</template>
 
 <script>
-export default {};
+import { computed, reactive } from "vue";
+import SearchBar from "../components/SearchBar.vue";
+export default {
+  name: "DropdownSelectDemo",
+  components: { SearchBar },
+  setup() {
+    let searchEventReturnValue = reactive({
+      returnValue: "keyword",
+    });
+    const importCode = computed(() => {
+      return `
+import SearchBar from "../components/SearchBar.vue";
+      `;
+    });
+    const templateCode = computed(() => {
+      return `
+const searchProps = computed(() => {
+    return {
+        placeholder: "Search Something", // optional
+    };
+});
+const submitSearch = (event) => {
+    // Do something with the event
+    searchEventReturnValue.returnValue = event;
+};
+      `;
+    });
+    const searchProps = computed(() => {
+      return {
+        placeholder: "Search Something", // optional
+      };
+    });
+    const submitSearch = (event) => {
+      // Do something with the event
+      searchEventReturnValue.returnValue = event;
+    };
+    return {
+      searchEventReturnValue,
+      importCode,
+      templateCode,
+      searchProps,
+      submitSearch,
+    };
+  },
+};
 </script>
 
-<style></style>
+<style lang="scss">
+.demo-wrapper {
+  > * {
+    display: inline-block;
+    margin-right: 50px;
+  }
+}
+</style>

@@ -19,7 +19,7 @@
         {{ option.label }}
       </option>
     </select>
-    <span class="dropdown-icon"></span>
+    <span class="icons icon-dropdown"></span>
   </div>
 </template>
 
@@ -53,4 +53,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.dropdown-wrapper {
+  position: relative;
+  .icon-dropdown {
+    background: url("../assets/icons/LinearIconsSVG/chevron-down.svg");
+    position: absolute;
+    right: 7px;
+    top: 55%;
+    pointer-events: none;
+  }
+}
+</style>

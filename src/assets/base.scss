@@ -91,11 +91,23 @@ body {
   h6 {
     margin: 15px 0 10px 0;
   }
-  select {
-    border-radius: var(--input-radius);
-    height: var(--input-height);
-    font-size: var(--input-text-size);
-    padding-top: 5px;
+  input, select {
+    border-radius: var(--input-radius) !important;
+    height: var(--input-height) !important;
+    font-size: var(--input-text-size) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 10px !important;
+    margin: 0px !important;
+    vertical-align: middle;
+    background-image: none;
+  }
+
+  .icons {
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    cursor: pointer;
   }
   .dropdown-wrapper {
     .dropdown-title {
