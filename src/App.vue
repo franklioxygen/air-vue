@@ -9,6 +9,7 @@ let toggleList = () => {
   componentsListExpanded.show = !componentsListExpanded.show;
 };
 onMounted(() => {
+  renewalExpandStatus();
   window.addEventListener("resize", renewalExpandStatus);
 });
 
