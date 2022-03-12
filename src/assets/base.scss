@@ -114,4 +114,7 @@ body {
       font-size: var(--label-text-size);
     }
   }
+  @media only screen and (max-width: 768px) {
+    overflow: hidden;
+  }
 }

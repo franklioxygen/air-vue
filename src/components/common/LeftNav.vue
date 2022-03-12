@@ -1,13 +1,23 @@
 <template>
   <div class="nav-container">
-    <router-link v-for="(route, id) in routes" :to="route.path" :key="id">{{
-      route.name
-    }}</router-link>
+    <router-link
+      v-for="(route, id) in routes"
+      :to="route.path"
+      :key="id"
+      @click="changeRoute"
+      >{{ route.name }}</router-link
+    >
   </div>
 </template>
 
 <script setup>
+import { defineEmits } from "vue";
 import routes from "../../router/routes";
+const emit = defineEmits(["change-route"]);
+const changeRoute = () => emit("change-route");
+// let changeRoute = () => {
+//   emit(["change-route"]);
+// };
 </script>
 
 <style lang="scss" scoped>
