@@ -7,6 +7,8 @@ let componentsListExpanded = reactive({
 });
 let toggleList = () => {
   componentsListExpanded.show = !componentsListExpanded.show;
+  document.getElementsByTagName("body")[0].style.overflow =
+    componentsListExpanded.show ? "hidden" : "auto";
 };
 onMounted(() => {
   renewalExpandStatus();
@@ -16,8 +18,10 @@ onMounted(() => {
 let renewalExpandStatus = () => {
   if (window.innerWidth > 768) {
     componentsListExpanded.show = true;
+    document.getElementsByTagName("body")[0].overflow = "hidden";
   } else {
     componentsListExpanded.show = false;
+    document.getElementsByTagName("body")[0].overflow = "scroll";
   }
 };
 </script>

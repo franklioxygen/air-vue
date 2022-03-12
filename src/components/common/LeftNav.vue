@@ -7,6 +7,11 @@
       @click="changeRoute"
       >{{ route.name }}</router-link
     >
+    test <br />test <br />test <br />test <br />test <br />test <br />test
+    <br />test <br />test <br />test <br />test <br />test <br />test <br />test
+    <br />test <br />test <br />test <br />test <br />test <br />test <br />test
+    <br />test <br />test <br />test <br />test <br />test <br />test <br />test
+    <br />test <br />test <br />test <br />
   </div>
 </template>
 
@@ -26,6 +31,10 @@ const changeRoute = () => emit("change-route");
   a {
     display: block;
     color: $green;
+    margin: 8px 0;
+    @media only screen and (max-width: 768px) {
+      margin: 12px 0;
+    }
   }
 }
 </style>
