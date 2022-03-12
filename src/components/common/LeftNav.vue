@@ -16,7 +16,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from "vue";
 import routes from "../../router/routes";
 const emit = defineEmits(["change-route"]);
 const changeRoute = () => emit("change-route");
@@ -27,7 +26,6 @@ const changeRoute = () => emit("change-route");
 
 <style lang="scss" scoped>
 .nav-container {
-  // border-right: 1px solid $grey-light;
   a {
     display: block;
     color: $green;

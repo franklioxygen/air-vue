@@ -1,29 +1,13 @@
 <script setup>
-import { onMounted, reactive } from "vue";
 import Header from "./components/common/Header.vue";
 import LeftNav from "./components/common/LeftNav.vue";
-let componentsListExpanded = reactive({
-  show: false,
-});
 let toggleList = () => {
-  componentsListExpanded.show = !componentsListExpanded.show;
-  toggleWindowScroll();
-};
-onMounted(() => {
-  renewalExpandStatus();
-  window.addEventListener("resize", renewalExpandStatus);
-});
-let toggleWindowScroll = () => {
-  document.getElementsByTagName("body")[0].style.overflow =
-    componentsListExpanded.show ? "hidden" : "scroll";
-};
-let renewalExpandStatus = () => {
-  toggleList();
-  if (window.innerWidth > 768) {
-    componentsListExpanded.show = true;
-  } else {
-    componentsListExpanded.show = false;
-  }
+  let list = document.getElementsByClassName("left-nav")[0].classList;
+  let body = document.getElementsByTagName("body")[0];
+
+  list.contains("show-for-medium")
+    ? (list.remove("show-for-medium"), (body.style.overflow = "hidden"))
+    : (list.add("show-for-medium"), (body.style.overflow = "auto"));
 };
 </script>
 
@@ -37,10 +21,10 @@ let renewalExpandStatus = () => {
     </span>
   </div>
   <div class="grid-x container">
-    <div class="cell left-nav" v-show="componentsListExpanded.show">
-      <LeftNav @change-route="renewalExpandStatus" />
+    <div class="cell show-for-medium left-nav">
+      <LeftNav @change-route="toggleList" />
     </div>
-    <div class="cell large-auto content">
+    <div class="cell medium-auto content">
       <router-view></router-view>
     </div>
   </div>
@@ -59,7 +43,7 @@ let renewalExpandStatus = () => {
     z-index: 30;
     .expand-nav {
       display: none;
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 640px) {
         display: block;
         position: inherit;
         right: 20px;
@@ -81,7 +65,7 @@ let renewalExpandStatus = () => {
       height: 100%;
       overflow-y: scroll;
       padding: 20px 20px 120px 20px;
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 640px) {
         display: block;
         z-index: 100;
         background: var(--color-background-soft);
@@ -92,7 +76,7 @@ let renewalExpandStatus = () => {
       left: 220px;
       padding: 20px 20px 80px 20px;
       width: calc(100% - 220px);
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 640px) {
         left: 0;
         width: 100%;
       }
