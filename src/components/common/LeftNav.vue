@@ -26,11 +26,8 @@ import { onMounted } from "@vue/runtime-core";
 import routes from "../../router/routes";
 const emit = defineEmits(["change-route"]);
 const changeRoute = () => emit("change-route");
-let setDarkMode = () => {
-  document.documentElement.setAttribute("data-theme", "dark");
-};
-let setLightMode = () => {
-  document.documentElement.setAttribute("data-theme", "light");
+let switchScheme = (scheme) => {
+  document.documentElement.setAttribute("data-theme", scheme);
 };
 let isDarkMode = () => {
   return (
@@ -39,17 +36,14 @@ let isDarkMode = () => {
   );
 };
 onMounted(() => {
-  const changeTheme = document.getElementById("change-theme");
-  changeTheme.addEventListener("change", (e) => {
-    if (e.target.checked) {
-      setDarkMode();
-    } else {
-      setLightMode();
-    }
-  });
-  if (isDarkMode()) {
-    setDarkMode();
-  }
+  // add event listener for change theme
+  document
+    .getElementById("change-theme")
+    .addEventListener("change", (event) => {
+      event.target.checked ? switchScheme("dark") : switchScheme("light");
+    });
+  //initial mode
+  isDarkMode() ? switchScheme("dark") : null;
 });
 </script>
 
