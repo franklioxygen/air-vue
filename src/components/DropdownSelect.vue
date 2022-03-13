@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown-wrapper" :style="dropdownStyle">
     <span class="dropdown-title">{{ dropdownProps.title }}</span>
-    <select class="dropdown" @change="applyDropdown">
+    <select class="dropdown" @change="applyDropdownEmit">
       <option
         v-show="dropdownProps.default === false"
         value="invalid"
@@ -42,12 +42,12 @@ export default {
     const dropdownStyle = computed(() => {
       return props.width !== null ? `width: ${props.width}` : "";
     });
-    const applyDropdown = (event) => {
+    const applyDropdownEmit = (event) => {
       emit("apply-dropdown", event.target.value);
     };
     return {
       dropdownStyle,
-      applyDropdown,
+      applyDropdownEmit,
     };
   },
 };

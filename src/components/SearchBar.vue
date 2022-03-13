@@ -1,12 +1,12 @@
 <template>
   <div class="search-wrapper" :style="searchStyle">
-    <div class="icon-search icons" @click="submitSearch(keyword)"></div>
+    <div class="icon-search icons" @click="submitSearchEmit(keyword)"></div>
     <input
       type="text"
       v-model="keyword"
       class="search-input"
       :placeholder="searchProps.placeholder"
-      @keyup.enter="submitSearch(keyword)"
+      @keyup.enter="submitSearchEmit(keyword)"
     />
   </div>
 </template>
@@ -31,10 +31,10 @@ export default {
     const searchStyle = computed(() => {
       return props.width !== null ? `width: ${props.width}` : "";
     });
-    const submitSearch = (keyword) => {
+    const submitSearchEmit = (keyword) => {
       emit("submit-search", keyword);
     };
-    return { keyword, searchStyle, submitSearch };
+    return { keyword, searchStyle, submitSearchEmit };
   },
 };
 </script>

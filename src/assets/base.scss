@@ -23,9 +23,12 @@
   --code-background-light: rgba(235, 235, 235, 0.64);
   --code-background-dark: rgba(212, 212, 212, 0.808);
 
+  --color-background-highlight-light: rgba(84, 84, 84, 0.65);
+  --color-background-highlight-dark:rgba(235, 235, 235, 0.64);
+
   --label-text-size: 0.8rem;
   --input-text-size: 1rem;
-  --input-radius: 0.2rem;
+  --input-radius: 0.3rem;
   --input-height: 2rem;
 }
 
@@ -34,6 +37,7 @@
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
+  --color-background-highlight: var(--color-background-highlight-light);
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
@@ -50,6 +54,7 @@
   --color-background: var(--vt-c-black);
   --color-background-soft: var(--vt-c-black-soft);
   --color-background-mute: var(--vt-c-black-mute);
+  --color-background-highlight: var(--color-background-highlight-dark);
 
   --color-border: var(--vt-c-divider-dark-2);
   --color-border-hover: var(--vt-c-divider-dark-1);
@@ -105,7 +110,7 @@ body {
   h6 {
     margin: 15px 0 10px 0;
   }
-  input, select {
+  input, select, .button-box {
     border-radius: var(--input-radius) !important;
     height: var(--input-height) !important;
     font-size: var(--input-text-size) !important;

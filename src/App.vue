@@ -2,6 +2,7 @@
 import Header from "./components/common/Header.vue";
 import LeftNav from "./components/common/LeftNav.vue";
 let toggleList = () => {
+  if (window.innerWidth > 640) return;
   let list = document.getElementsByClassName("left-nav")[0].classList;
   let body = document.getElementsByTagName("body")[0];
 
@@ -69,6 +70,7 @@ let toggleList = () => {
         display: block;
         z-index: 100;
         background: var(--color-background-soft);
+        transition: 0.4s;
         width: 100%;
       }
     }

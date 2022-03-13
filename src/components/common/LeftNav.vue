@@ -14,6 +14,10 @@
       @click="changeRoute"
       >{{ route.name }}</router-link
     >
+    Todo: <br />
+    DataTable <br />
+    SkeletonLoader <br />
+    Slideout <br />
   </div>
 </template>
 

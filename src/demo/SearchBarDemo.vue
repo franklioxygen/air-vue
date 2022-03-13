@@ -6,7 +6,7 @@
     <SearchBar
       width="200px"
       :search-props="searchProps"
-      @submit-search="submitSearch"
+      @submit-search="submitSearchEvent"
     />
     <div>
       This is the value return from Search:
@@ -53,7 +53,7 @@ const submitSearch = (event) => {
         placeholder: "Search Something", // optional
       };
     });
-    const submitSearch = (event) => {
+    const submitSearchEvent = (event) => {
       // Do something with the event
       searchEventReturnValue.returnValue = event;
     };
@@ -62,7 +62,7 @@ const submitSearch = (event) => {
       importCode,
       templateCode,
       searchProps,
-      submitSearch,
+      submitSearchEvent,
     };
   },
 };

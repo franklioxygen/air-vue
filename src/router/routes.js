@@ -14,4 +14,9 @@ export default [
     path: "/searchBar",
     component: () => import("../demo/SearchBarDemo.vue"),
   },
+  {
+    name: "Toggle Button",
+    path: "/toggleButton",
+    component: () => import("../demo/ToggleButtonDemo.vue"),
+  },
 ];

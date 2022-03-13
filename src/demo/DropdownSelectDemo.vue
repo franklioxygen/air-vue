@@ -9,7 +9,7 @@
     <DropdownSelect
       width="200px"
       :dropdown-props="dropdownProps"
-      @apply-dropdown="applyDropdown"
+      @apply-dropdown="applyDropdownEvent"
     />
     <div>
       This is the value return from Dropdown:
@@ -88,7 +88,7 @@ const applyDropdown = (event) => {
         ],
       };
     });
-    const applyDropdown = (event) => {
+    const applyDropdownEvent = (event) => {
       // Do something with the event
       dropdownEventReturnValue.returnValue = event;
     };
@@ -97,7 +97,7 @@ const applyDropdown = (event) => {
       importCode,
       templateCode,
       dropdownProps,
-      applyDropdown,
+      applyDropdownEvent,
     };
   },
 };
