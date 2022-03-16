@@ -17,6 +17,8 @@
     </div>
   </div>
   <h5>Usage:</h5>
+  <h6>Insert component:</h6>
+  <highlightjs language="html" :code="insertCode" />
   <h6>Import:</h6>
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
@@ -33,6 +35,15 @@ export default {
     let dropdownEventReturnValue = reactive({
       returnValue: " select one",
     });
+    const insertCode = computed(() => {
+      return `
+<DropdownSelect
+  width="200px"
+  :dropdown-props="dropdownProps"
+  @apply-dropdown="applyDropdownEvent"
+/>
+      `;
+    });
     const importCode = computed(() => {
       return `
 import DropdownSelect from "../components/DropdownSelect.vue";
@@ -40,6 +51,12 @@ import DropdownSelect from "../components/DropdownSelect.vue";
     });
     const templateCode = computed(() => {
       return `
+<DropdownSelect
+  width="200px"
+  :dropdown-props="dropdownProps"
+  @apply-dropdown="applyDropdownEvent"
+/>
+
 const dropdownProps = computed(() => {
   return {
     title: "Demo Dropdown Title", //optional
@@ -94,6 +111,7 @@ const applyDropdown = (event) => {
     };
     return {
       dropdownEventReturnValue,
+      insertCode,
       importCode,
       templateCode,
       dropdownProps,

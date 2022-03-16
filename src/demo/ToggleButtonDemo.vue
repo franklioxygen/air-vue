@@ -14,6 +14,8 @@
     </div>
   </div>
   <h5>Usage:</h5>
+  <h6>Insert component:</h6>
+  <highlightjs language="html" :code="insertCode" />
   <h6>Import:</h6>
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
@@ -28,16 +30,25 @@ export default {
   name: "ToggleButtonDemo",
   components: { ToggleButton },
   setup() {
-    let checked = reactive({
+    const checked = reactive({
       value: false,
     });
     let toggleEventReturnValue = reactive({
       returnValue: checked.value,
     });
-    let toggleProps = computed(() => {
+    const toggleProps = computed(() => {
       return {
         label: "Toggle Button",
       };
+    });
+    const insertCode = computed(() => {
+      return `
+<ToggleButton
+  :checked="checked.value"
+  :toggle-props="toggleProps"
+  @toggle-button="toggleButtonEvent"
+/>
+      `;
     });
     const importCode = computed(() => {
       return `
@@ -46,10 +57,10 @@ import ToggleButton from "../components/ToggleButton.vue";
     });
     const templateCode = computed(() => {
       return `
-let checked = reactive({
+const checked = reactive({
     value: false,
 });
-let toggleProps = computed(() => {
+const toggleProps = computed(() => {
     return {
         label: "Toggle Button",
     };
@@ -68,6 +79,7 @@ const toggleButtonEvent = (event) => {
       toggleEventReturnValue,
       checked,
       toggleProps,
+      insertCode,
       importCode,
       templateCode,
       toggleButtonEvent,

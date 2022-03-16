@@ -25,7 +25,7 @@ let toggleList = () => {
     <div class="cell show-for-medium left-nav">
       <LeftNav @change-route="toggleList" />
     </div>
-    <div class="cell medium-auto content">
+    <div class="cell content">
       <router-view></router-view>
     </div>
   </div>

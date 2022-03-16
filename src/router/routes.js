@@ -19,4 +19,9 @@ export default [
     path: "/toggleButton",
     component: () => import("../demo/ToggleButtonDemo.vue"),
   },
+  {
+    name: "Skeleton Loader",
+    path: "/skeletonLoader",
+    component: () => import("../demo/SkeletonLoaderDemo.vue"),
+  },
 ];

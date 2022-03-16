@@ -14,6 +14,8 @@
     </div>
   </div>
   <h5>Usage:</h5>
+  <h6>Insert component:</h6>
+  <highlightjs language="html" :code="insertCode" />
   <h6>Import:</h6>
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
@@ -29,6 +31,15 @@ export default {
   setup() {
     let searchEventReturnValue = reactive({
       returnValue: "keyword",
+    });
+    const insertCode = computed(() => {
+      return `
+<SearchBar
+  width="200px"
+  :search-props="searchProps"
+  @submit-search="submitSearchEvent"
+/>
+      `;
     });
     const importCode = computed(() => {
       return `
@@ -59,6 +70,7 @@ const submitSearch = (event) => {
     };
     return {
       searchEventReturnValue,
+      insertCode,
       importCode,
       templateCode,
       searchProps,
