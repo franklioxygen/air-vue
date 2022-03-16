@@ -1,10 +1,12 @@
 <template>
   <div class="toggle-wrapper">
-    <input type="checkbox" name="mode" id="checkbox" :checked="checked" />
+    <input type="checkbox" :id="id" :checked="checked" />
     <div class="button-box" @click="toggleState()">
       <div class="button-bar"></div>
     </div>
-    <div class="toggle-label">{{ toggleProps.label }}</div>
+    <div class="toggle-label" v-if="toggleProps">
+      {{ toggleProps.label }}
+    </div>
   </div>
 </template>
 
@@ -13,9 +15,14 @@ import { onMounted, reactive } from "@vue/runtime-core";
 export default {
   name: "ToggleButton",
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     checked: {
       type: Boolean,
       default: false,
+      required: true,
     },
     toggleProps: {
       type: Object,
@@ -36,11 +43,13 @@ export default {
       emit("toggle-button", state);
     };
     const moveBar = () => {
-      document
-        .getElementsByClassName("button-box")[0]
-        .classList.toggle("active");
-      document.getElementById("checkbox").checked =
-        !document.getElementById("checkbox").checked;
+      const targetBox = (event.path || event.composedPath()).filter((e) =>
+        e.classList ? e.classList.contains("button-box") : ""
+      )[0].classList;
+      targetBox.toggle("active");
+      document.getElementById(props.id).checked = !document.getElementById(
+        props.id
+      ).checked;
     };
     onMounted(() => {
       currentState.state === true ? moveBar() : null;

@@ -4,6 +4,7 @@
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <ToggleButton
+      id="demo-toggle-button"
       :checked="checked.value"
       :toggle-props="toggleProps"
       @toggle-button="toggleButtonEvent"
@@ -30,20 +31,10 @@ export default {
   name: "ToggleButtonDemo",
   components: { ToggleButton },
   setup() {
-    const checked = reactive({
-      value: false,
-    });
-    let toggleEventReturnValue = reactive({
-      returnValue: checked.value,
-    });
-    const toggleProps = computed(() => {
-      return {
-        label: "Toggle Button",
-      };
-    });
     const insertCode = computed(() => {
       return `
 <ToggleButton
+  id="demo-toggle-button"
   :checked="checked.value"
   :toggle-props="toggleProps"
   @toggle-button="toggleButtonEvent"
@@ -70,6 +61,17 @@ const toggleButtonEvent = (event) => {
     toggleEventReturnValue.returnValue = event;
 };
       `;
+    });
+    const checked = reactive({
+      value: false,
+    });
+    let toggleEventReturnValue = reactive({
+      returnValue: checked.value,
+    });
+    const toggleProps = computed(() => {
+      return {
+        label: "Toggle Button",
+      };
     });
     const toggleButtonEvent = (event) => {
       // Do something with the event

@@ -1,12 +1,13 @@
 <template>
   <div class="nav-container">
-    <input
-      type="checkbox"
-      name="mode"
-      id="change-theme"
-      :checked="isDarkMode()"
-    />
-    <span> Toggle Theme</span>
+    <div class="dark-mode-toggle">
+      <ToggleButton
+        id="change-theme"
+        :checked="isDarkMode().value"
+        @toggle-button="toggleButtonEvent"
+      />
+      <span>{{ currentTheme.value }}</span>
+    </div>
     <router-link
       v-for="(route, id) in routes"
       :to="route.path"
@@ -16,39 +17,55 @@
     >
     Todo: <br />
     DataTable <br />
-    SkeletonLoader <br />
     Slideout <br />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from "@vue/runtime-core";
+import { onMounted, reactive } from "@vue/runtime-core";
 import routes from "../../router/routes";
+import ToggleButton from "../ToggleButton.vue";
 const emit = defineEmits(["change-route"]);
 const changeRoute = () => emit("change-route");
-let switchScheme = (scheme) => {
+let currentTheme = reactive({
+  value: null,
+});
+const switchScheme = (scheme) => {
   document.documentElement.setAttribute("data-theme", scheme);
 };
-let isDarkMode = () => {
+const isDarkMode = () => {
   return (
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 };
+const toggleButtonEvent = (event) => {
+  event
+    ? (switchScheme("light"),
+      (currentTheme.value = String.fromCodePoint(0x1f31d)))
+    : (switchScheme("dark"),
+      (currentTheme.value = String.fromCodePoint(0x1f31c)));
+};
 onMounted(() => {
-  // add event listener for change theme
-  document
-    .getElementById("change-theme")
-    .addEventListener("change", (event) => {
-      event.target.checked ? switchScheme("dark") : switchScheme("light");
-    });
   //initial mode
-  isDarkMode() ? switchScheme("dark") : null;
+  isDarkMode()
+    ? (switchScheme("dark"),
+      (currentTheme.value = String.fromCodePoint(0x1f31c)))
+    : (currentTheme.value = String.fromCodePoint(0x1f31d));
 });
 </script>
 
 <style lang="scss" scoped>
 .nav-container {
+  .dark-mode-toggle {
+    > * {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    span {
+      vertical-align: middle;
+    }
+  }
   a {
     display: block;
     color: $green;
