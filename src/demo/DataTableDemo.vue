@@ -23,7 +23,7 @@ export default {
   setup() {
     const insertCode = computed(() => {
       return `
-
+<DataTable :table-props="tableProps" />
       `;
     });
     const importCode = computed(() => {
@@ -33,6 +33,33 @@ import DataTable from "../components/DataTable.vue";
     });
     const templateCode = computed(() => {
       return `
+const tableProps = computed(() => {
+return {
+  title: "Demo Data Table Title", //optional
+  tableHead: [
+    {
+      label: "Product Name",
+      field: "name",
+    },
+    {
+      label: "Price($)",
+      field: "price",
+    },
+    {
+      label: "Weight(kg)",
+      field: "weight",
+    },
+    {
+      label: "Dimensions(w x h x d)",
+      field: "dimensions",
+    },
+  ],
+  tableBody: [
+    { name: "Apple", price: "1.00", weight: "1.23", dimensions: "3x2x3" },
+    ...
+  ],
+};
+});
       `;
     });
     const tableProps = computed(() => {
