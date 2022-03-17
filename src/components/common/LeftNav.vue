@@ -16,7 +16,6 @@
       >{{ route.name }}</router-link
     >
     Todo: <br />
-    DataTable <br />
     Slideout <br />
   </div>
 </template>
@@ -58,6 +57,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .nav-container {
   .dark-mode-toggle {
+    margin: 10px 0 20px 0;
     > * {
       display: inline-block;
       margin-right: 10px;
@@ -71,8 +71,8 @@ onMounted(() => {
     color: $green;
     margin: 8px 0;
     @media only screen and (max-width: 640px) {
-      margin: 12px 0;
-      font-size: 18px;
+      margin: 15px 0;
+      font-size: 20px;
     }
   }
   .router-link-active {

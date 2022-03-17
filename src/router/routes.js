@@ -24,4 +24,9 @@ export default [
     path: "/skeletonLoader",
     component: () => import("../demo/SkeletonLoaderDemo.vue"),
   },
+  {
+    name: "Data Table",
+    path: "/dataTable",
+    component: () => import("../demo/DataTableDemo.vue"),
+  },
 ];
