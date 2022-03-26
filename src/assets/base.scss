@@ -34,6 +34,9 @@
   --input-text-size: 1rem;
   --input-radius: 0.3rem;
   --input-height: 2rem;
+
+  --invert-background-icon-light: invert(0);
+  --invert-background-icon-dark: invert(0.5);
 }
 
 /* semantic color variables for this project */
@@ -53,6 +56,8 @@
   --section-gap: 160px;
 
   --color-code-background: var(--code-background-light);
+
+  --invert-background-icon: var(--invert-background-icon-light)
 }
 
 [data-theme="dark"] {
@@ -69,6 +74,8 @@
   --color-text: var(--vt-c-text-dark-2);
 
   --color-code-background: var(--code-background-dark);
+
+  --invert-background-icon: var(--invert-background-icon-dark)
 }
 // auto dark theme
 // @media (prefers-color-scheme: dark) {

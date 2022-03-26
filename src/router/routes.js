@@ -29,4 +29,9 @@ export default [
     path: "/dataTable",
     component: () => import("../demo/DataTableDemo.vue"),
   },
+  {
+    name: "Slideout Template",
+    path: "/slideoutTemplate",
+    component: () => import("../demo/SlideoutTemplateDemo.vue"),
+  },
 ];

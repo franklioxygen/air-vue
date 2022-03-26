@@ -16,7 +16,9 @@
       >{{ route.name }}</router-link
     >
     Todo: <br />
-    Slideout <br />
+    Notification <br />
+    Modal Overlay <br />
+    Progress Bar <br />
   </div>
 </template>
 
