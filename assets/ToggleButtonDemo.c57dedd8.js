@@ -1,4 +1,4 @@
-import{_,T as p}from"./index.70568192.js";import{s as n,r as d,f as i,o as h,c as m,a as t,g as l,t as v,F as B}from"./vendor.63de1768.js";const T={name:"ToggleButtonDemo",components:{ToggleButton:p},setup(){const s=n(()=>`
+import{_,T as p}from"./index.7b3dd353.js";import{s as n,r as d,f as i,o as h,c as m,a as t,g as l,t as v,F as B}from"./vendor.ebe7cf86.js";const T={name:"ToggleButtonDemo",components:{ToggleButton:p},setup(){const s=n(()=>`
 <ToggleButton
   id="demo-toggle-button"
   :checked="checked.value"
