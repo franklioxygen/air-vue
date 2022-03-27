@@ -55,7 +55,6 @@ export default {
   setup() {
     // define named slots slideout example
     let slideoutProps = reactive({
-      expanded: false,
       title: "Default Slideout Title",
       content: "Default Slideout Content",
     });

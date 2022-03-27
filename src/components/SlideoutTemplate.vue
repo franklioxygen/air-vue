@@ -7,7 +7,6 @@
   <div
     class="slideoutTemplate-wrapper"
     :class="[slideoutExpanded.status ? 'expanded' : '', slideoutExpanded.side]"
-    ref="wrapper"
   >
     <div class="control-bar">
       <div class="icon-back" v-show="backable" @click="backScreen()"></div>
@@ -93,7 +92,6 @@ export default {
   border: var(--color-background-soft) solid 2px;
   background: var(--color-background-mute);
   position: fixed;
-  // left: calc(100% + 500px);
   top: 0;
   margin: 0;
   z-index: 35;
