@@ -12,7 +12,6 @@
     <div class="control-bar">
       <div class="icon-back" v-show="backable" @click="backScreen()"></div>
       <div class="icon-close" @click="toggleSlideout()"></div>
-      {{ slideoutExpanded.side }}
     </div>
     <h3>
       <slot name="title"></slot>
@@ -53,7 +52,6 @@ export default {
     const toggleSlideout = () => {
       slideoutExpanded.status = !slideoutExpanded.status;
       slideoutExpanded.side = props.side;
-      console.log(slideoutExpanded.side, props.side);
     };
     const backScreen = () => {
       emit("back-screen");
@@ -103,9 +101,25 @@ export default {
   transition: 0.5s;
   &.right {
     left: calc(100% + 500px);
+    .control-bar {
+      .icon-back {
+        left: 0;
+      }
+      .icon-close {
+        right: 0;
+      }
+    }
   }
   &.left {
     right: calc(100% + 500px);
+    .control-bar {
+      .icon-back {
+        right: 0;
+      }
+      .icon-close {
+        left: 0;
+      }
+    }
   }
   &.expanded {
     top: 0;
@@ -131,18 +145,19 @@ export default {
     .icon-back {
       background: url("../assets/icons/LinearIconsSVG/chevron-left.svg");
       background-size: 30px;
-      left: 0;
     }
     .icon-close {
       background: url("../assets/icons/LinearIconsSVG/cross.svg");
       background-size: 30px;
-      right: 0;
     }
   }
   @media only screen and (max-width: 640px) {
     width: 100%;
-    &.expanded {
+    &.expanded.right {
       left: 0;
+    }
+    &.expanded.left {
+      right: 0;
     }
   }
 }
