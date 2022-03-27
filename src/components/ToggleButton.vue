@@ -34,7 +34,7 @@ export default {
     let currentState = reactive({
       state: props.checked,
     });
-    let toggleState = () => {
+    const toggleState = () => {
       currentState.state = !currentState.state;
       toggleButtonEmit(currentState.state);
       moveBar();
