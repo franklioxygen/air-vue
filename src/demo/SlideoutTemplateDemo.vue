@@ -1,6 +1,9 @@
 <template>
   <h3>Slideout Template</h3>
-  <p>SlideoutTemplate</p>
+  <p>
+    Slideout Template is to open a slideout from right or left side. It can load
+    asynchronous and with multi screens.
+  </p>
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <SlideoutTemplate
@@ -9,14 +12,14 @@
       :side="slideoutProps.side"
       @back-screen="backScreen"
     >
-      <!-- normal title content slideout slots (optional)-->
+      <!-- normal named slideout slots (optional)-->
       <template #title>
         {{ slideoutProps.title }}
       </template>
       <template #content>
         {{ slideoutProps.content }}
       </template>
-      <!-- dynamic load component slot (optional)-->
+      <!-- load dynamic component slot (optional)-->
       <template #customComponent>
         <component
           v-if="dynamicComponent.components.length > 1"
@@ -30,7 +33,7 @@
     <span @click="loadDefaultSlideout()">Click to load default slideout</span
     ><br />
     <span @click="loadMultiScreenSlideout()">
-      Click to load Multi Screen slideout </span
+      Click to load dynamic component slideout with multi screen</span
     ><br />
   </div>
   <h5>Usage:</h5>
@@ -50,13 +53,13 @@ export default {
   name: "SlideoutTemplateDemo",
   components: { SlideoutTemplate },
   setup() {
-    // define example named slots slideout
+    // define named slots slideout example
     let slideoutProps = reactive({
       expanded: false,
       title: "Default Slideout Title",
       content: "Default Slideout Content",
     });
-    // define example dynamic component slideout
+    // define dynamic component slideout example
     let dynamicComponent = reactive({
       components: [{}],
     });
@@ -69,6 +72,7 @@ export default {
       slideoutProps.expanded = !slideoutProps.expanded;
     };
     // this is how to apply a normal named slots slideout
+    // open from right is default
     const loadDefaultSlideout = () => {
       toggleSlideout();
       slideoutProps.title = "Slideout Title";
@@ -77,6 +81,7 @@ export default {
     // this is how to load dynamic component slideout
     const loadMultiScreenSlideout = () => {
       toggleSlideout();
+      // open from left side (optional)
       slideoutProps.side = "left";
       dynamicComponent.components.unshift({
         key: "dummy-component-2",
@@ -112,9 +117,9 @@ export default {
 <SlideoutTemplate
   :expanded="slideoutProps.expanded"
   :backable="dynamicComponent.components.length > 2"
+  :side="slideoutProps.side"
   @back-screen="backScreen"
 >
-
   <!-- normal title content slideout slots (optional)-->
   <template #title>
     {{ slideoutProps.title }}
@@ -122,7 +127,6 @@ export default {
   <template #content>
     {{ slideoutProps.content }}
   </template>
-
   <!-- dynamic load component slot (optional)-->
   <template #customComponent>
     <component
@@ -132,7 +136,6 @@ export default {
       @add-screen="addScreen"
     />
   </template>
-
 </SlideoutTemplate>
       `;
     });
@@ -143,14 +146,14 @@ import SlideoutTemplate from "../components/SlideoutTemplate.vue";
     });
     const templateCode = computed(() => {
       return `
-// define example named slots slideout
+// define named slots slideout example
 let slideoutProps = reactive({
   expanded: false,
   title: "Default Slideout Title",
   content: "Default Slideout Content",
 });
 
-// define example dynamic component slideout 
+// define dynamic component slideout example
 let dynamicComponent = reactive({
   components: [{}],
 });
@@ -160,10 +163,12 @@ const toggleSlideout = () => {
   dynamicComponent.components = [{}];
   slideoutProps.title = null;
   slideoutProps.content = null;
+  slideoutProps.side = undefined;
   slideoutProps.expanded = !slideoutProps.expanded;
 };
 
 // this is how to apply a normal named slots slideout
+// open from right is default
 const loadDefaultSlideout = () => {
   toggleSlideout();
   slideoutProps.title = "Slideout Title";
@@ -173,6 +178,8 @@ const loadDefaultSlideout = () => {
 // this is how to load dynamic component slideout
 const loadMultiScreenSlideout = () => {
   toggleSlideout();
+  // open from left side (optional)
+  slideoutProps.side = "left";
   dynamicComponent.components.unshift({
     key: "dummy-component-2",
     component: markRaw(
@@ -200,7 +207,6 @@ const addScreen = () => {
     ),
   });
 };
-
 const backScreen = () => {
   dynamicComponent.components.shift();
 };
