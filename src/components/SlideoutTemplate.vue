@@ -54,8 +54,17 @@ export default {
       side: props.side,
     });
     const toggleSlideout = () => {
-      slideoutExpanded.status = !slideoutExpanded.status;
-      slideoutExpanded.side = props.side;
+      new Promise((resolve) => {
+        slideoutExpanded.side = props.side;
+        resolve();
+      }).then(() => {
+        new Promise((resolve) => {
+          setTimeout(() => {
+            slideoutExpanded.status = !slideoutExpanded.status;
+            resolve();
+          }, 10);
+        });
+      });
     };
     const backScreen = () => {
       emit("back-screen");
