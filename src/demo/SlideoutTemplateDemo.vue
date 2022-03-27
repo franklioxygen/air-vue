@@ -147,7 +147,6 @@ import SlideoutTemplate from "../components/SlideoutTemplate.vue";
       return `
 // define named slots slideout example
 let slideoutProps = reactive({
-  expanded: false,
   title: "Default Slideout Title",
   content: "Default Slideout Content",
 });
