@@ -1,12 +1,17 @@
 <template>
   <div
-    class="slideoutTemplate-shade"
-    :class="slideoutExpanded.status ? 'expanded' : ''"
+    :class="[
+      `slideoutTemplate-shade`,
+      slideoutExpanded.status ? 'expanded' : '',
+    ]"
     @click="toggleSlideout()"
   ></div>
   <div
-    class="slideoutTemplate-wrapper"
-    :class="[slideoutExpanded.status ? 'expanded' : '', slideoutExpanded.side]"
+    :class="[
+      `slideoutTemplate-wrapper`,
+      slideoutExpanded.status ? 'expanded' : '',
+      slideoutExpanded.side,
+    ]"
   >
     <div class="control-bar">
       <div class="icon-back" v-show="backable" @click="backScreen()"></div>
