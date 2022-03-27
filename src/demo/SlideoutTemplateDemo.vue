@@ -5,8 +5,8 @@
   <div class="demo-wrapper">
     <SlideoutTemplate
       :expanded="slideoutProps.expanded"
-      :id="slideoutProps.id"
       :backable="dynamicComponent.components.length > 2"
+      :side="slideoutProps.side"
       @back-screen="backScreen"
     >
       <!-- normal title content slideout slots (optional)-->
@@ -29,9 +29,6 @@
 
     <span @click="loadDefaultSlideout()">Click to load default slideout</span
     ><br />
-    <span @click="loadDynamicSlideout()">
-      Click to load dynamic component slideout </span
-    ><br />
     <span @click="loadMultiScreenSlideout()">
       Click to load Multi Screen slideout </span
     ><br />
@@ -53,14 +50,13 @@ export default {
   name: "SlideoutTemplateDemo",
   components: { SlideoutTemplate },
   setup() {
-    // define named slots slideout
+    // define example named slots slideout
     let slideoutProps = reactive({
       expanded: false,
-      id: "default-slideout",
       title: "Default Slideout Title",
       content: "Default Slideout Content",
     });
-    // define dynamic component slideout
+    // define example dynamic component slideout
     let dynamicComponent = reactive({
       components: [{}],
     });
@@ -69,6 +65,7 @@ export default {
       dynamicComponent.components = [{}];
       slideoutProps.title = null;
       slideoutProps.content = null;
+      slideoutProps.side = undefined;
       slideoutProps.expanded = !slideoutProps.expanded;
     };
     // this is how to apply a normal named slots slideout
@@ -77,24 +74,10 @@ export default {
       slideoutProps.title = "Slideout Title";
       slideoutProps.content = "Slideout Content";
     };
-    // this is how to apply a dynamic component slideout
-    const loadDynamicSlideout = () => {
-      toggleSlideout();
-      dynamicComponent.components.unshift({
-        id: "dummy-component-1",
-        component: markRaw(
-          defineAsyncComponent(() =>
-            import(
-              /* webpackChunkName: "DynamicLoadDummy" */
-              "./dummy/DynamicLoadDummy-1.vue"
-            )
-          )
-        ),
-      });
-    };
-    // this is same to dynamic component slideout, but it has multi screen
+    // this is how to load dynamic component slideout
     const loadMultiScreenSlideout = () => {
       toggleSlideout();
+      slideoutProps.side = "left";
       dynamicComponent.components.unshift({
         key: "dummy-component-2",
         component: markRaw(
@@ -128,7 +111,6 @@ export default {
       return `
 <SlideoutTemplate
   :expanded="slideoutProps.expanded"
-  :id="slideoutProps.id"
   :backable="dynamicComponent.components.length > 2"
   @back-screen="backScreen"
 >
@@ -161,15 +143,14 @@ import SlideoutTemplate from "../components/SlideoutTemplate.vue";
     });
     const templateCode = computed(() => {
       return `
-// define named slots slideout
+// define example named slots slideout
 let slideoutProps = reactive({
   expanded: false,
-  id: "default-slideout",
   title: "Default Slideout Title",
   content: "Default Slideout Content",
 });
 
-// define dynamic component slideout 
+// define example dynamic component slideout 
 let dynamicComponent = reactive({
   components: [{}],
 });
@@ -189,23 +170,7 @@ const loadDefaultSlideout = () => {
   slideoutProps.content = "Slideout Content";
 };
 
-// this is how to apply a dynamic component slideout
-const loadDynamicSlideout = () => {
-  toggleSlideout();
-  dynamicComponent.components.unshift({
-    id: "dummy-component-1",
-    component: markRaw(
-      defineAsyncComponent(() =>
-        import(
-          /* webpackChunkName: "DynamicLoadDummy" */
-          "./dummy/DynamicLoadDummy-1.vue"
-        )
-      )
-    ),
-  });
-};
-
-// this is same to dynamic component slideout, but it has multi screen
+// this is how to load dynamic component slideout
 const loadMultiScreenSlideout = () => {
   toggleSlideout();
   dynamicComponent.components.unshift({
@@ -246,7 +211,6 @@ const backScreen = () => {
       dynamicComponent,
       toggleSlideout,
       loadDefaultSlideout,
-      loadDynamicSlideout,
       loadMultiScreenSlideout,
       addScreen,
       backScreen,

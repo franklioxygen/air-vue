@@ -1,17 +1,18 @@
 <template>
   <div
     class="slideoutTemplate-shade"
-    :class="slideoutExpanded.value ? 'expanded' : ''"
+    :class="slideoutExpanded.status ? 'expanded' : ''"
     @click="toggleSlideout()"
   ></div>
   <div
     class="slideoutTemplate-wrapper"
-    :class="slideoutExpanded.value ? 'expanded' : ''"
+    :class="[slideoutExpanded.status ? 'expanded' : '', slideoutExpanded.side]"
     ref="wrapper"
   >
     <div class="control-bar">
       <div class="icon-back" v-show="backable" @click="backScreen()"></div>
       <div class="icon-close" @click="toggleSlideout()"></div>
+      {{ slideoutExpanded.side }}
     </div>
     <h3>
       <slot name="title"></slot>
@@ -34,10 +35,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    id: {
+    side: {
       type: String,
-      default: "slideout-id",
-      required: true,
+      default: "right",
     },
     backable: {
       type: Boolean,
@@ -47,10 +47,13 @@ export default {
   emits: ["back-screen"],
   setup(props, { emit }) {
     let slideoutExpanded = reactive({
-      value: props.expanded,
+      status: props.expanded,
+      side: props.side,
     });
     const toggleSlideout = () => {
-      slideoutExpanded.value = !slideoutExpanded.value;
+      slideoutExpanded.status = !slideoutExpanded.status;
+      slideoutExpanded.side = props.side;
+      console.log(slideoutExpanded.side, props.side);
     };
     const backScreen = () => {
       emit("back-screen");
@@ -58,7 +61,7 @@ export default {
     watch(
       () => props.expanded,
       () => {
-        slideoutExpanded.value = !slideoutExpanded.value;
+        toggleSlideout();
       }
     );
     return {
@@ -92,16 +95,27 @@ export default {
   border: var(--color-background-soft) solid 2px;
   background: var(--color-background-mute);
   position: fixed;
-  left: calc(100% + 500px);
+  // left: calc(100% + 500px);
   top: 0;
   margin: 0;
   z-index: 35;
   opacity: 1;
   transition: 0.5s;
+  &.right {
+    left: calc(100% + 500px);
+  }
+  &.left {
+    right: calc(100% + 500px);
+  }
   &.expanded {
-    left: calc(100% - 500px);
     top: 0;
     transform: 0.4s;
+  }
+  &.expanded.right {
+    left: calc(100% - 500px);
+  }
+  &.expanded.left {
+    right: calc(100% - 500px);
   }
   .control-bar {
     width: 100%;
