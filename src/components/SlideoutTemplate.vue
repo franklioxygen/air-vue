@@ -125,14 +125,12 @@ export default {
     }
   }
   &.expanded {
-    top: 0;
-    transform: 0.4s;
-  }
-  &.expanded.right {
-    left: calc(100% - 500px);
-  }
-  &.expanded.left {
-    right: calc(100% - 500px);
+    &.right {
+      left: calc(100% - 500px);
+    }
+    &.left {
+      right: calc(100% - 500px);
+    }
   }
   .control-bar {
     width: 100%;
