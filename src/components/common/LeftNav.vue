@@ -18,7 +18,7 @@
     <hr />
     Todo: <br />
     Notification <br />
-    Modal Overlay <br />
+    Button <br />
     Progress Bar <br />
     <hr />
     accessibility <br />

@@ -78,12 +78,12 @@ export default {
       toggleModal();
       modalProps.title = "Modal Title";
       modalProps.content = "Modal Content";
-      modalProps.height = "400";
-      modalProps.width = "500";
     };
     // this is how to load dynamic component Modal
     const loadMultiScreenModal = () => {
       toggleModal();
+      modalProps.height = "400";
+      modalProps.width = "600";
       dynamicComponent.components.unshift({
         key: "dummy-component-2",
         component: markRaw(
@@ -172,12 +172,12 @@ const loadDefaultModal = () => {
   toggleModal();
   modalProps.title = "Modal Title";
   modalProps.content = "Modal Content";
-  modalProps.height = "400";
-  modalProps.width = "500";
 };
 // this is how to load dynamic component Modal
 const loadMultiScreenModal = () => {
   toggleModal();
+  modalProps.height = "400";
+  modalProps.width = "600";
   dynamicComponent.components.unshift({
     key: "dummy-component-2",
     component: markRaw(

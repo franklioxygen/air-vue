@@ -129,7 +129,7 @@ export default {
   }
   &.opened {
     opacity: 1;
-    z-index: 30;
+    z-index: 35;
   }
   .control-bar {
     width: 100%;
@@ -156,10 +156,10 @@ export default {
     height: calc(100% - 30px);
   }
   @media only screen and (max-width: 640px) {
-    width: 100%;
-    left: 0;
-    top: 0;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
   }
 }
 </style>
