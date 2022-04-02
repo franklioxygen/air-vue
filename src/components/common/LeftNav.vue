@@ -15,10 +15,13 @@
       @click="changeRoute"
       >{{ route.name }}</router-link
     >
+    <hr />
     Todo: <br />
     Notification <br />
     Modal Overlay <br />
     Progress Bar <br />
+    <hr />
+    accessibility <br />
   </div>
 </template>
 

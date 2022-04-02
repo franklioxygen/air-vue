@@ -34,4 +34,9 @@ export default [
     path: "/slideoutTemplate",
     component: () => import("../demo/SlideoutTemplateDemo.vue"),
   },
+  {
+    name: "Modal Overlay",
+    path: "/ModalOverlay",
+    component: () => import("../demo/ModalOverlayDemo.vue"),
+  },
 ];

@@ -1,5 +1,5 @@
 <template>
-  <h5>Donec faucibus rhoncus</h5>
+  <h4>Donec faucibus rhoncus</h4>
   <p>
     Donec faucibus rhoncus turpis eu commodo. Integer id leo metus. Etiam
     malesuada tellus risus, non auctor mi suscipit a. Nullam egestas, eros at

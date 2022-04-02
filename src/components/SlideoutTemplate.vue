@@ -1,14 +1,14 @@
 <template>
   <div
     :class="[
-      `slideoutTemplate-shade`,
+      `slideout-template-shade`,
       slideoutExpanded.status ? 'expanded' : '',
     ]"
     @click="toggleSlideout()"
   ></div>
   <div
     :class="[
-      `slideoutTemplate-wrapper`,
+      `slideout-template-wrapper`,
       slideoutExpanded.status ? 'expanded' : '',
       slideoutExpanded.side,
     ]"
@@ -17,14 +17,16 @@
       <div class="icon-back" v-show="backable" @click="backScreen()"></div>
       <div class="icon-close" @click="toggleSlideout()"></div>
     </div>
-    <h3>
-      <slot name="title"></slot>
-    </h3>
-    <div>
-      <slot name="content"></slot>
-    </div>
-    <div>
-      <slot name="customComponent"></slot>
+    <div class="slideout-body-container">
+      <h4>
+        <slot name="title"></slot>
+      </h4>
+      <div>
+        <slot name="content"></slot>
+      </div>
+      <div>
+        <slot name="customComponent"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -32,7 +34,7 @@
 <script>
 import { reactive, watch } from "vue";
 export default {
-  name: "slideoutTemplate",
+  name: "SlideoutTemplate",
   props: {
     expanded: {
       type: Boolean,
@@ -85,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slideoutTemplate-shade {
+.slideout-template-shade {
   display: none;
   &.expanded {
     display: block;
@@ -99,7 +101,7 @@ export default {
     opacity: 0.8;
   }
 }
-.slideoutTemplate-wrapper {
+.slideout-template-wrapper {
   padding: 30px;
   width: 500px;
   height: 100%;
@@ -144,7 +146,7 @@ export default {
   .control-bar {
     width: 100%;
     height: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     > * {
       cursor: pointer;
       width: 30px;
@@ -160,6 +162,10 @@ export default {
       background: url("../assets/icons/LinearIconsSVG/cross.svg");
       background-size: 30px;
     }
+  }
+  .slideout-body-container {
+    overflow: auto;
+    height: calc(100% - 30px);
   }
   @media only screen and (max-width: 640px) {
     width: 100%;
