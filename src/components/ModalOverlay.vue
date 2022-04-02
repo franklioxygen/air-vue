@@ -40,11 +40,11 @@ export default {
     },
     height: {
       type: String,
-      default: "300",
+      default: "400",
     },
     width: {
       type: String,
-      default: "300",
+      default: "400",
     },
   },
   emits: ["back-screen"],
