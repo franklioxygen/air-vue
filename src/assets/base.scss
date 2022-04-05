@@ -124,6 +124,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  a {
+    color: $green;
+  }
+  a:hover{
+    color: $green-light;
+  }
   h5 {
     border-bottom: 1px var(--vt-c-divider-dark-1) solid;
     padding-bottom: 5px;

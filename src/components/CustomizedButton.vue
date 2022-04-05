@@ -67,7 +67,7 @@ export default {
     &.vu-btn-primary {
       background-color: $green;
       &.vu-btn-primary:hover {
-        border: 2px solid var(--color-background-highlight-2);
+        border: 2px solid $green-light;
       }
     }
     &.vu-btn-secondary {
