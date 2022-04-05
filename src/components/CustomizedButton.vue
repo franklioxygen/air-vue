@@ -1,7 +1,7 @@
 <template>
   <div class="button-wrapper">
     <button
-      :class="['vu-button', buttonProps.level]"
+      :class="['vu-button', level]"
       :style="buttonStyle"
       @click="clickButtonEmit"
       :disabled="buttonProps.disabled"
@@ -25,9 +25,14 @@ export default {
       type: String,
       default: "",
     },
+    level: {
+      type: String,
+      default: "primary",
+    },
     buttonProps: {
       type: Object,
-      required: true,
+      default: () => ({}),
+      required: false,
     },
   },
   emits: ["click-button"],

@@ -30,11 +30,18 @@
       </template>
     </SlideOut>
 
-    <span @click="loadDefaultSlideout()">Click to load default slideout</span
-    ><br />
-    <span @click="loadMultiScreenSlideout()">
-      Click to load dynamic component slideout with multi screen</span
-    ><br />
+    <CustomizedButton
+      button-text="Default Slide Out"
+      width="300px"
+      level="vu-btn-primary"
+      @click-button="loadDefaultSlideout()"
+    />
+    <CustomizedButton
+      button-text="Dynamic Component Slide Out"
+      width="300px"
+      level="vu-btn-primary"
+      @click-button="loadMultiScreenSlideout()"
+    />
   </div>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
@@ -48,10 +55,11 @@
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
 import SlideOut from "../components/SlideOut.vue";
+import CustomizedButton from "../components/CustomizedButton.vue";
 
 export default {
   name: "SlideOutDemo",
-  components: { SlideOut },
+  components: { SlideOut, CustomizedButton },
   setup() {
     // define named slots slideout example
     let slideoutProps = reactive({

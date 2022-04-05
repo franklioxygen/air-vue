@@ -31,11 +31,18 @@
       </template>
     </ModalOverlay>
 
-    <span @click="loadDefaultModal()">Click to load default modal</span><br />
-    <span @click="loadMultiScreenModal()">
-      Click to load dynamic component modal with multi screen in default
-      size</span
-    ><br />
+    <CustomizedButton
+      button-text="Default Modal"
+      width="300px"
+      level="vu-btn-primary"
+      @click-button="loadDefaultModal()"
+    />
+    <CustomizedButton
+      button-text="Dynamic component Modal"
+      width="300px"
+      level="vu-btn-primary"
+      @click-button="loadMultiScreenModal()"
+    />
   </div>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
@@ -49,10 +56,11 @@
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
 import ModalOverlay from "../components/ModalOverlay.vue";
+import CustomizedButton from "../components/CustomizedButton.vue";
 
 export default {
   name: "ModalOverlayDemo",
-  components: { ModalOverlay },
+  components: { ModalOverlay, CustomizedButton },
   setup() {
     // define named slots modal example
     let modalProps = reactive({
