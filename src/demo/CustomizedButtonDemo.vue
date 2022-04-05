@@ -17,13 +17,11 @@
       {{ buttonEventReturnValue.clickCounter }} times.
     </div>
     <br />
-    <br />
     <CustomizedButton
       button-text="Secondary Button"
       width="180px"
       level="vu-btn-secondary"
     />
-    <br />
     <br />
     <CustomizedButton
       button-text="Disabled Button"
@@ -53,26 +51,24 @@ export default {
     const insertCode = computed(() => {
       return `
 <CustomizedButton
-    button-text="Primary Button"
-    width="180px"
-    :button-props="primaryButtonProps"
-    @click-button="clickButtonEvent"
+  button-text="Primary Button"
+  width="180px"
+  level="vu-btn-primary"
+  @click-button="clickButtonEvent"
 />
 <div>
-    Button clicked:
-    {{ buttonEventReturnValue.clickCounter }} times.
+  Button clicked:
+  {{ buttonEventReturnValue.clickCounter }} times.
 </div>
-
 <CustomizedButton
-    button-text="Secondary Button"
-    width="180px"
-    :button-props="secondaryButtonProps"
+  button-text="Secondary Button"
+  width="180px"
+  level="vu-btn-secondary"
 />
-
 <CustomizedButton
-    button-text="Disabled Button"
-    :button-props="disabledButtonProps"
-    @click-button="clickButtonEvent"
+  button-text="Disabled Button"
+  :button-props="disabledButtonProps"
+  @click-button="clickButtonEvent"
 />
       `;
     });
@@ -85,7 +81,7 @@ import CustomizedButton from "../components/CustomizedButton.vue";
       return `
 const disabledButtonProps = computed(() => {
     return {
-    disabled: true, // required false or index
+    disabled: true, // optional
     };
 });
 const clickButtonEvent = () => {
@@ -95,7 +91,7 @@ const clickButtonEvent = () => {
     });
     const disabledButtonProps = computed(() => {
       return {
-        disabled: true, // required false or index
+        disabled: true, // optional
       };
     });
     const clickButtonEvent = () => {
