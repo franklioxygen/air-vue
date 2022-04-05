@@ -39,6 +39,7 @@
   --input-text-size: 1rem;
   --input-radius: 0.3rem;
   --input-height: 2rem;
+  --input-height-mobile: 3rem; 
 
   --invert-background-icon-light: invert(0);
   --invert-background-icon-dark: invert(0.5);
@@ -140,12 +141,15 @@ body {
   }
   input, select, .switch-box, .vu-button {
     border-radius: var(--input-radius) !important;
-    height: var(--input-height) !important;
-    font-size: var(--input-text-size) !important;
-    padding: 0 10px 0 10px !important;
+    height: var(--input-height);
+    font-size: var(--input-text-size);
+    padding: 0 10px 0 10px;
     margin: 10px 0 10px 0;
     vertical-align: middle;
     background-image: none;
+    @media only screen and (max-width: 640px) {
+      height: var(--input-height-mobile);
+    }
   }
 
   .icons {

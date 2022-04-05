@@ -1,13 +1,13 @@
 <template>
-  <h3>Toggle Button</h3>
-  <p>Toggle Button is used to toggle.</p>
+  <h3>Toggle Switch</h3>
+  <p>Toggle Switch is used to toggle.</p>
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <ToggleSwitch
       id="demo-toggle-switch"
       :checked="checked.value"
       :toggle-props="toggleProps"
-      @toggle-switch="toggleButtonEvent"
+      @toggle-switch="toggleSwitchEvent"
     />
     <div>
       This is the value return from Toggle:
@@ -28,12 +28,12 @@ import { computed, reactive } from "vue";
 import ToggleSwitch from "../components/ToggleSwitch.vue";
 
 export default {
-  name: "ToggleButtonDemo",
+  name: "ToggleSwitchDemo",
   components: { ToggleSwitch },
   setup() {
     const insertCode = computed(() => {
       return `
-<ToggleButton
+<ToggleSwitch
   id="demo-toggle-switch"
   :checked="checked.value"
   :toggle-props="toggleProps"
@@ -43,7 +43,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ToggleButton from "../components/ToggleButton.vue";
+import ToggleSwitch from "../components/ToggleSwitch.vue";
       `;
     });
     const templateCode = computed(() => {
@@ -53,10 +53,10 @@ const checked = reactive({
 });
 const toggleProps = computed(() => {
     return {
-        label: "Toggle Button",
+        label: "Toggle Switch",
     };
 });
-const toggleButtonEvent = (event) => {
+const toggleSwitchEvent = (event) => {
     // Do something with the event
     toggleEventReturnValue.returnValue = event;
 };
@@ -70,10 +70,10 @@ const toggleButtonEvent = (event) => {
     });
     const toggleProps = computed(() => {
       return {
-        label: "Toggle Button",
+        label: "Toggle Switch",
       };
     });
-    const toggleButtonEvent = (event) => {
+    const toggleSwitchEvent = (event) => {
       // Do something with the event
       toggleEventReturnValue.returnValue = event;
     };
@@ -84,7 +84,7 @@ const toggleButtonEvent = (event) => {
       insertCode,
       importCode,
       templateCode,
-      toggleButtonEvent,
+      toggleSwitchEvent,
     };
   },
 };
