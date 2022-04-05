@@ -17,10 +17,14 @@
     >
     <hr />
     Todo: <br />
-    Notification <br />
+    Inline Message <br />
+    Toast Message <br />
     Progress Bar <br />
+    Slider <br />
+    Tab Views <br />
+    Accordion <br />
     <hr />
-    accessibility <br />
+    Accessibility <br />
   </div>
 </template>
 
