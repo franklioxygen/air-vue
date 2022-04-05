@@ -39,4 +39,9 @@ export default [
     path: "/ModalOverlay",
     component: () => import("../demo/ModalOverlayDemo.vue"),
   },
+  {
+    name: "Customized Button ",
+    path: "/customizedButton",
+    component: () => import("../demo/CustomizedButtonDemo.vue"),
+  },
 ];

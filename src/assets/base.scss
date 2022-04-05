@@ -21,14 +21,19 @@
 
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-light-3: rgba(42, 42, 42, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --vt-c-text-dark-3: rgba(242, 242, 242, 0.903);
 
   --code-background-light: rgba(235, 235, 235, 0.64);
   --code-background-dark: rgba(212, 212, 212, 0.808);
 
   --color-background-highlight-light: rgba(84, 84, 84, 0.65);
   --color-background-highlight-dark:rgba(235, 235, 235, 0.64);
+
+  --color-background-highlight-light-2: rgba(57, 57, 57, 0.851);
+  --color-background-highlight-dark-2:rgba(245, 245, 245, 0.899);
 
   --label-text-size: 0.8rem;
   --input-text-size: 1rem;
@@ -45,6 +50,7 @@
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
   --color-background-highlight: var(--color-background-highlight-light);
+  --color-background-highlight-2: var(--color-background-highlight-light-2);
   --color-skeleton-loader: var(--mid-grey-1);
 
   --color-border: var(--vt-c-divider-light-2);
@@ -52,6 +58,7 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+  --color-text-strong: var(--vt-c-text-light-3);
 
   --section-gap: 160px;
 
@@ -65,6 +72,7 @@
   --color-background-soft: var(--vt-c-black-soft);
   --color-background-mute: var(--vt-c-black-mute);
   --color-background-highlight: var(--color-background-highlight-dark);
+  --color-background-highlight-2: var(--color-background-highlight-dark-2);
   --color-skeleton-loader: var(--mid-grey-3);
 
   --color-border: var(--vt-c-divider-dark-2);
@@ -72,6 +80,7 @@
 
   --color-heading: var(--vt-c-text-dark-1);
   --color-text: var(--vt-c-text-dark-2);
+  --color-text-strong: var(--vt-c-text-dark-3);
 
   --color-code-background: var(--code-background-dark);
 
@@ -123,13 +132,11 @@ body {
   h6 {
     margin: 15px 0 10px 0;
   }
-  input, select, .button-box {
+  input, select, .button-box, .vu-button {
     border-radius: var(--input-radius) !important;
     height: var(--input-height) !important;
     font-size: var(--input-text-size) !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: 10px !important;
+    padding: 0 10px 0 10px !important;
     margin: 0px !important;
     vertical-align: middle;
     background-image: none;

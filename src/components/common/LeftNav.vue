@@ -18,7 +18,6 @@
     <hr />
     Todo: <br />
     Notification <br />
-    Button <br />
     Progress Bar <br />
     <hr />
     accessibility <br />
