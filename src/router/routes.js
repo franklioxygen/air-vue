@@ -15,9 +15,9 @@ export default [
     component: () => import("../demo/SearchBarDemo.vue"),
   },
   {
-    name: "Toggle Button",
-    path: "/toggleButton",
-    component: () => import("../demo/ToggleButtonDemo.vue"),
+    name: "Toggle Switch",
+    path: "/toggleSwitch",
+    component: () => import("../demo/ToggleSwitchDemo.vue"),
   },
   {
     name: "Skeleton Loader",

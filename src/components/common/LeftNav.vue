@@ -1,10 +1,10 @@
 <template>
   <div class="nav-container">
     <div class="dark-mode-toggle">
-      <ToggleButton
+      <ToggleSwitch
         id="change-theme"
         :checked="isDarkMode().value"
-        @toggle-button="toggleButtonEvent"
+        @toggle-switch="toggleSwitchEvent"
       />
       <span>{{ currentTheme.value }}</span>
     </div>
@@ -27,7 +27,7 @@
 <script setup>
 import { onMounted, reactive } from "@vue/runtime-core";
 import routes from "../../router/routes";
-import ToggleButton from "../ToggleButton.vue";
+import ToggleSwitch from "../ToggleSwitch.vue";
 const emit = defineEmits(["change-route"]);
 const changeRoute = () => emit("change-route");
 let currentTheme = reactive({
@@ -42,7 +42,7 @@ const isDarkMode = () => {
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 };
-const toggleButtonEvent = (event) => {
+const toggleSwitchEvent = (event) => {
   event
     ? (switchScheme("light"),
       (currentTheme.value = String.fromCodePoint(0x1f31d)))
