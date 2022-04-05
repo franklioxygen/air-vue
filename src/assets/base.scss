@@ -139,7 +139,7 @@ body {
   h6 {
     margin: 15px 0 10px 0;
   }
-  input, select, .switch-box, .vu-button {
+  input, select, .vu-button, .switch-box {
     border-radius: var(--input-radius) !important;
     height: var(--input-height);
     font-size: var(--input-text-size);
@@ -147,6 +147,8 @@ body {
     margin: 10px 0 10px 0;
     vertical-align: middle;
     background-image: none;
+  }
+  .vu-button {
     @media only screen and (max-width: 640px) {
       height: var(--input-height-mobile);
     }
