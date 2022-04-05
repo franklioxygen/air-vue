@@ -1,14 +1,11 @@
 <template>
   <div
-    :class="[
-      `slideout-template-shade`,
-      slideoutExpanded.status ? 'expanded' : '',
-    ]"
+    :class="[`slide-out-shade`, slideoutExpanded.status ? 'expanded' : '']"
     @click="toggleSlideout()"
   ></div>
   <div
     :class="[
-      `slideout-template-wrapper`,
+      `slide-out-wrapper`,
       slideoutExpanded.status ? 'expanded' : '',
       slideoutExpanded.side,
     ]"
@@ -34,7 +31,7 @@
 <script>
 import { reactive, watch } from "vue";
 export default {
-  name: "SlideoutTemplate",
+  name: "SlideOut",
   props: {
     expanded: {
       type: Boolean,
@@ -87,7 +84,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slideout-template-shade {
+.slide-out-shade {
   display: none;
   &.expanded {
     display: block;
@@ -101,7 +98,7 @@ export default {
     opacity: 0.8;
   }
 }
-.slideout-template-wrapper {
+.slide-out-wrapper {
   padding: 30px;
   width: 500px;
   height: 100%;

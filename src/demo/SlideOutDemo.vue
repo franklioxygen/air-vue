@@ -1,12 +1,12 @@
 <template>
-  <h3>Slideout Template</h3>
+  <h3>Slide Out</h3>
   <p>
-    Slideout Template is to open a slideout from right or left side. It can load
+    Slide Out is to open a slideout from right or left side. It can load
     asynchronous and with multi screens.
   </p>
   <h5>Demo:</h5>
   <div class="demo-wrapper">
-    <SlideoutTemplate
+    <SlideOut
       :expanded="slideoutProps.expanded"
       :backable="dynamicComponent.components.length > 2"
       :side="slideoutProps.side"
@@ -28,7 +28,7 @@
           @add-screen="addScreen"
         />
       </template>
-    </SlideoutTemplate>
+    </SlideOut>
 
     <span @click="loadDefaultSlideout()">Click to load default slideout</span
     ><br />
@@ -47,11 +47,11 @@
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
-import SlideoutTemplate from "../components/SlideoutTemplate.vue";
+import SlideOut from "../components/SlideOut.vue";
 
 export default {
-  name: "SlideoutTemplateDemo",
-  components: { SlideoutTemplate },
+  name: "SlideOutDemo",
+  components: { SlideOut },
   setup() {
     // define named slots slideout example
     let slideoutProps = reactive({
@@ -113,20 +113,20 @@ export default {
     };
     const insertCode = computed(() => {
       return `
-<SlideoutTemplate
+<SlideOut
   :expanded="slideoutProps.expanded"
   :backable="dynamicComponent.components.length > 2"
   :side="slideoutProps.side"
   @back-screen="backScreen"
 >
-  <!-- normal title content slideout slots (optional)-->
+  <!-- normal named slideout slots (optional)-->
   <template #title>
     {{ slideoutProps.title }}
   </template>
   <template #content>
     {{ slideoutProps.content }}
   </template>
-  <!-- dynamic load component slot (optional)-->
+  <!-- load dynamic component slot (optional)-->
   <template #customComponent>
     <component
       v-if="dynamicComponent.components.length > 1"
@@ -135,12 +135,12 @@ export default {
       @add-screen="addScreen"
     />
   </template>
-</SlideoutTemplate>
+</SlideOut>
       `;
     });
     const importCode = computed(() => {
       return `
-import SlideoutTemplate from "../components/SlideoutTemplate.vue";
+import SlideOut from "../components/SlideOut.vue";
       `;
     });
     const templateCode = computed(() => {

@@ -7,9 +7,9 @@
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <CustomizedButton
-      buttonText="Primary Button"
+      button-text="Primary Button"
       width="180px"
-      :buttonProps="primaryButtonProps"
+      :button-props="primaryButtonProps"
       @click-button="clickButtonEvent"
     />
     <div>
@@ -19,15 +19,15 @@
     <br />
     <br />
     <CustomizedButton
-      buttonText="Secondary Button"
+      button-text="Secondary Button"
       width="180px"
-      :buttonProps="secondaryButtonProps"
+      :button-props="secondaryButtonProps"
     />
     <br />
     <br />
     <CustomizedButton
-      buttonText="Disabled Button"
-      :buttonProps="disabledButtonProps"
+      button-text="Disabled Button"
+      :button-props="disabledButtonProps"
       @click-button="clickButtonEvent"
     />
   </div>
@@ -53,9 +53,9 @@ export default {
     const insertCode = computed(() => {
       return `
 <CustomizedButton
-    buttonText="Primary Button"
+    button-text="Primary Button"
     width="180px"
-    :buttonProps="primaryButtonProps"
+    :button-props="primaryButtonProps"
     @click-button="clickButtonEvent"
 />
 <div>
@@ -64,14 +64,14 @@ export default {
 </div>
 
 <CustomizedButton
-    buttonText="Secondary Button"
+    button-text="Secondary Button"
     width="180px"
-    :buttonProps="secondaryButtonProps"
+    :button-props="secondaryButtonProps"
 />
 
 <CustomizedButton
-    buttonText="Disabled Button"
-    :buttonProps="disabledButtonProps"
+    button-text="Disabled Button"
+    :button-props="disabledButtonProps"
     @click-button="clickButtonEvent"
 />
       `;

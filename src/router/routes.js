@@ -30,9 +30,9 @@ export default [
     component: () => import("../demo/DataTableDemo.vue"),
   },
   {
-    name: "Slideout Template",
-    path: "/slideoutTemplate",
-    component: () => import("../demo/SlideoutTemplateDemo.vue"),
+    name: "Slide Out",
+    path: "/slideOut",
+    component: () => import("../demo/SlideOutDemo.vue"),
   },
   {
     name: "Modal Overlay",
