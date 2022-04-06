@@ -121,6 +121,7 @@ export default {
   .msg-type-name {
     display: inline-block;
     margin-right: 5px;
+    font-weight: 700;
 
     &.success {
       color: rgb(0, 114, 0);

@@ -49,4 +49,9 @@ export default [
     path: "/inlineMessage",
     component: () => import("../demo/InlineMessageDemo.vue"),
   },
+  {
+    name: "Toast Message",
+    path: "/toastMessage",
+    component: () => import("../demo/ToastMessageDemo.vue"),
+  },
 ];
