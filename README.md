@@ -2,8 +2,7 @@
 
 Demo: https://franklioxygen.github.io/VU/
 
-<img alt="Screen Shot 2022-04-02 at 12 02 12 AM" src="https://user-images.githubusercontent.com/2637636/161365508-f73afa7b-c8c6-42ee-a25e-95291f8500a1.png">
-
+<img alt="Screen Shot 2022-04-05 at 11 16 32 PM" src="https://user-images.githubusercontent.com/2637636/161889060-c7c0b3b4-48c9-4f1c-896d-fc11a2f427ba.png">
 
 WIP: This is a Vue Component Library
 
