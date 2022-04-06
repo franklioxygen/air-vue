@@ -42,7 +42,7 @@
   --input-height-mobile: 3rem; 
 
   --invert-background-icon-light: invert(0);
-  --invert-background-icon-dark: invert(0.5);
+  --invert-background-icon-dark: invert(0.7);
 }
 
 /* semantic color variables for this project */
@@ -159,6 +159,8 @@ body {
     height: 20px;
     z-index: 1;
     cursor: pointer;
+    -webkit-filter: var(--invert-background-icon);
+    filter: var(--invert-background-icon);
   }
   .dropdown-wrapper {
     .dropdown-title {

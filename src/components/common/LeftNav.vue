@@ -17,7 +17,6 @@
     >
     <hr />
     Todo: <br />
-    Inline Message <br />
     Toast Message <br />
     Progress Bar <br />
     Slider <br />

@@ -36,12 +36,17 @@ export default [
   },
   {
     name: "Modal Overlay",
-    path: "/ModalOverlay",
+    path: "/modalOverlay",
     component: () => import("../demo/ModalOverlayDemo.vue"),
   },
   {
     name: "Customized Button ",
     path: "/customizedButton",
     component: () => import("../demo/CustomizedButtonDemo.vue"),
+  },
+  {
+    name: "Inline Message",
+    path: "/inlineMessage",
+    component: () => import("../demo/InlineMessageDemo.vue"),
   },
 ];
