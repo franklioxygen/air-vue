@@ -1,6 +1,6 @@
 <template>
   <div class="toast-msgs-wrapper">
-    <div v-for="(message, index) in messagesWrapper.messages" :key="index">
+    <div v-for="message in messagesWrapper.messages" :key="message">
       <div :class="['toast-msg', 'collapsed', message.status]" :id="message.id">
         <div :class="['icons-msg', 'icons', message.type]"></div>
         <div class="count-down"></div>
@@ -45,8 +45,8 @@ export default {
       checkElement(`#${id}`).then(() => {
         const element = document.getElementById(id);
         const countdownDOM = element.querySelector(".count-down");
-        element.classList.add("expanded");
         element.classList.remove("collapsed");
+        element.classList.add("expanded");
         if (duration !== 0) {
           updateCountdownMsg(countdownDOM, duration);
           setTimeout(() => {
@@ -57,7 +57,16 @@ export default {
       });
     };
     const closeMsg = (id) => {
-      emit("remove-msg-from-array", id);
+      const element = document.getElementById(id);
+      new Promise((resolve) => {
+        element.classList.remove("expanded");
+        element.classList.add("collapsed");
+        resolve();
+      }).then(() => {
+        setTimeout(() => {
+          emit("remove-msg-from-array", id);
+        }, 300);
+      });
     };
     const updateCountdownMsg = (countdownDOM, duration) => {
       let seconds = duration / 1000 + 1;

@@ -62,12 +62,9 @@ export default {
       new Promise((resolve) => {
         resolve();
       }).then(() => {
-        new Promise((resolve) => {
-          setTimeout(() => {
-            modalOpened.status = !modalOpened.status;
-            resolve();
-          }, 10);
-        });
+        setTimeout(() => {
+          modalOpened.status = !modalOpened.status;
+        }, 10);
       });
     };
     const backScreen = () => {

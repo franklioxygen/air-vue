@@ -41,13 +41,10 @@ export default {
         closeMsg();
         resolve();
       }).then(() => {
-        new Promise((resolve) => {
-          setTimeout(() => {
-            messageProps.status = "expanded";
-            messageProps.content = props.content;
-            resolve();
-          }, 300);
-        });
+        setTimeout(() => {
+          messageProps.status = "expanded";
+          messageProps.content = props.content;
+        }, 300);
       });
     };
     const closeMsg = () => {

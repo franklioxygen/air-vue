@@ -57,12 +57,9 @@ export default {
         slideoutExpanded.side = props.side;
         resolve();
       }).then(() => {
-        new Promise((resolve) => {
-          setTimeout(() => {
-            slideoutExpanded.status = !slideoutExpanded.status;
-            resolve();
-          }, 10);
-        });
+        setTimeout(() => {
+          slideoutExpanded.status = !slideoutExpanded.status;
+        }, 10);
       });
     };
     const backScreen = () => {

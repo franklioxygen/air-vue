@@ -3,30 +3,38 @@
   <p>Toast Message is to display message to user.</p>
   <h5>Demo:</h5>
   <div class="demo-wrapper">
+    <span>Multiple lines message:</span><br />
     <CustomizedButton
       button-text="Success Message"
       width="200px"
       level="vu-btn-primary"
       @click-button="popSuccessMessage()"
     />
+    <br />
+    <span>Message with html code:</span><br />
     <CustomizedButton
       button-text="Warning Message"
       width="200px"
       level="vu-btn-primary"
       @click-button="popWarningMessage()"
     />
+    <br />
+    <span>Delay close message:</span><br />
     <CustomizedButton
       button-text="Failed Message"
       width="200px"
       level="vu-btn-primary"
       @click-button="popFailedMessage()"
     />
+    <br />
+    <span>Normal Message:</span><br />
     <CustomizedButton
       button-text="Info Message"
       width="200px"
       level="vu-btn-primary"
       @click-button="popInfoMessage()"
     />
+    <br />
     <ToastMessage
       :messagesWrapper="toastMessages"
       ref="exampleToastMessage"
@@ -82,7 +90,7 @@ export default {
     };
     const popFailedMessage = () => {
       const id = "msg-" + Date.now();
-      exampleToastMessage.value.openMsg(id, 20000); // duration in milliseconds
+      exampleToastMessage.value.openMsg(id, 10000); // duration in milliseconds
       toastMessages.messages.push({
         id: id,
         type: "failed",
@@ -144,7 +152,7 @@ const popWarningMessage = () => {
 };
 const popFailedMessage = () => {
   const id = "msg-" + Date.now();
-  exampleToastMessage.value.openMsg(id, 20000); // duration in milliseconds
+  exampleToastMessage.value.openMsg(id, 10000); // duration in milliseconds
   toastMessages.messages.push({
     id: id,
     type: "failed",
