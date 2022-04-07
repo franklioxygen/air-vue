@@ -54,4 +54,9 @@ export default [
     path: "/toastMessage",
     component: () => import("../demo/ToastMessageDemo.vue"),
   },
+  {
+    name: "Progress Bar",
+    path: "/progressBar",
+    component: () => import("../demo/ProgressBarDemo.vue"),
+  },
 ];

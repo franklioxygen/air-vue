@@ -26,7 +26,7 @@
 import { computed, reactive } from "vue";
 import SearchBar from "../components/SearchBar.vue";
 export default {
-  name: "DropdownSelectDemo",
+  name: "SearchBarDemo",
   components: { SearchBar },
   setup() {
     let searchEventReturnValue = reactive({
