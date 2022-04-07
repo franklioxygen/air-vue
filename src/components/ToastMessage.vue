@@ -3,6 +3,7 @@
     <div v-for="(message, index) in messagesWrapper.messages" :key="index">
       <div :class="['toast-msg', 'collapsed', message.status]" :id="message.id">
         <div :class="['icons-msg', 'icons', message.type]"></div>
+        <div class="count-down"></div>
         <div :class="['toast-msg-content', message.status]">
           <div :class="['msg-type-name', message.type]">{{ message.type }}</div>
           <div v-html="message.content"></div>
@@ -40,15 +41,31 @@ export default {
       }
     };
 
-    const openMsg = (id) => {
+    const openMsg = (id, duration) => {
       checkElement(`#${id}`).then(() => {
         const element = document.getElementById(id);
+        const countdownDOM = element.querySelector(".count-down");
         element.classList.add("expanded");
         element.classList.remove("collapsed");
+        if (duration !== 0) {
+          updateCountdownMsg(countdownDOM, duration);
+          setTimeout(() => {
+            countdownDOM.textContent = "";
+            closeMsg(id);
+          }, duration + 1000);
+        }
       });
     };
     const closeMsg = (id) => {
       emit("remove-msg-from-array", id);
+    };
+    const updateCountdownMsg = (countdownDOM, duration) => {
+      let seconds = duration / 1000 + 1;
+      const timeInterval = setInterval(() => {
+        seconds--;
+        countdownDOM.textContent = `Closing in ${seconds}s.`;
+        seconds <= 0 ? clearInterval(timeInterval) : null;
+      }, 1000);
     };
     return {
       openMsg,
@@ -82,6 +99,13 @@ export default {
       margin-bottom: 10px;
       box-shadow: 0 0 10px var(--color-background-highlight);
       display: none;
+      .count-down {
+        font-size: var(--label-text-size);
+        margin-top: 5px;
+        display: inline-block;
+        position: absolute;
+        right: 50px;
+      }
       @media only screen and (max-width: 640px) {
         width: 100vw;
         left: 0;

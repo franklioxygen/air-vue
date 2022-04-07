@@ -56,7 +56,7 @@ export default {
     const exampleToastMessage = ref();
     const popSuccessMessage = () => {
       const id = "msg-" + Date.now();
-      exampleToastMessage.value.openMsg(id);
+      exampleToastMessage.value.openMsg(id, 0);
       toastMessages.messages.push({
         id: id,
         type: "success",
@@ -72,7 +72,7 @@ export default {
     };
     const popWarningMessage = () => {
       const id = "msg-" + Date.now();
-      exampleToastMessage.value.openMsg(id);
+      exampleToastMessage.value.openMsg(id, 0); // 0 duration is infinite
       toastMessages.messages.push({
         id: id,
         type: "warning",
@@ -82,7 +82,7 @@ export default {
     };
     const popFailedMessage = () => {
       const id = "msg-" + Date.now();
-      exampleToastMessage.value.openMsg(id);
+      exampleToastMessage.value.openMsg(id, 20000); // duration in milliseconds
       toastMessages.messages.push({
         id: id,
         type: "failed",
@@ -91,7 +91,7 @@ export default {
     };
     const popInfoMessage = () => {
       const id = "msg-" + Date.now();
-      exampleToastMessage.value.openMsg(id);
+      exampleToastMessage.value.openMsg(id, 0);
       toastMessages.messages.push({
         id: id,
         type: "info",
@@ -120,22 +120,41 @@ import ToastMessage from "../components/ToastMessage.vue";
     const templateCode = computed(() => {
       return `
 let toastMessages = reactive({
-    messages: [],
+  messages: [],
 });
 const exampleToastMessage = ref();
 const popSuccessMessage = () => {
-    const id = "msg-" + Date.now();
-    exampleToastMessage.value.openMsg(id);
-    toastMessages.messages.push({
+  const id = "msg-" + Date.now();
+  exampleToastMessage.value.openMsg(id, 0);
+  toastMessages.messages.push({
     id: id,
     type: "success",
-    content: "This is a Success Message.",
-    });
+    content: 'This is a Success Message.',
+  });
+};
+const popWarningMessage = () => {
+  const id = "msg-" + Date.now();
+  exampleToastMessage.value.openMsg(id, 0); // 0 duration is infinite
+  toastMessages.messages.push({
+    id: id,
+    type: "warning",
+    content:
+      "This is a Warning Message. For more information, please visit <a>read more</a>.",
+  });
+};
+const popFailedMessage = () => {
+  const id = "msg-" + Date.now();
+  exampleToastMessage.value.openMsg(id, 20000); // duration in milliseconds
+  toastMessages.messages.push({
+    id: id,
+    type: "failed",
+    content: "This is a Failed Message.",
+  });
 };
 const removeMsgFromArray = (id) => {
-    toastMessages.messages = toastMessages.messages.filter(
+  toastMessages.messages = toastMessages.messages.filter(
     (message) => message.id !== id
-    );
+  );
 };
       `;
     });
