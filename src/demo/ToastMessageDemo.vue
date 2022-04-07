@@ -76,7 +76,8 @@ export default {
       toastMessages.messages.push({
         id: id,
         type: "warning",
-        content: "This is a Warning Message.",
+        content:
+          "This is a Warning Message. For more information, please visit <a>read more</a>.",
       });
     };
     const popFailedMessage = () => {

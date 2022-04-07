@@ -17,7 +17,6 @@
     >
     <hr />
     Todo: <br />
-    Toast Message <br />
     Progress Bar <br />
     Slider <br />
     Tab Views <br />

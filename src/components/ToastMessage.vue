@@ -5,7 +5,7 @@
         <div :class="['icons-msg', 'icons', message.type]"></div>
         <div :class="['toast-msg-content', message.status]">
           <div :class="['msg-type-name', message.type]">{{ message.type }}</div>
-          {{ message.content }}
+          <div v-html="message.content"></div>
         </div>
         <div
           :class="['icon-close icons', message.status]"
@@ -126,8 +126,9 @@ export default {
       .icon-close {
         display: inline-block;
         background: url("../assets/icons/LinearIconsSVG/cross.svg");
-        width: 20px;
-        height: 20px;
+        background-size: 30px;
+        width: 30px;
+        height: 30px;
         position: absolute;
         right: 10px;
         &.collapsed {
