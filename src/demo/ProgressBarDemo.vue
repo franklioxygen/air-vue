@@ -16,6 +16,9 @@
       :displayText="true"
       textPosition="fixed-text"
     />
+    <!-- sectional progress bar -->
+    <p>This is a sectional Progress Bar:</p>
+    <ProgressBar :currentProgress="40" :sections="progressSections" />
   </div>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
@@ -45,6 +48,9 @@ export default {
     :displayText="true"
     textPosition="fixed-text"
 />
+<!-- sectional progress bar -->
+<p>This is a sectional Progress Bar:</p>
+<ProgressBar :currentProgress="40" :sections="progressSections" />
       `;
     });
     const importCode = computed(() => {
@@ -64,6 +70,10 @@ onMounted(() => {
     dynamicProgress.value > 100 ? (dynamicProgress.value = 0) : null;
     }, 1000);
 });
+// this is for sectional progress
+let progressSections = computed(() => {
+    return ["Preparing", "Chopped", "Cooked", "On Table", "Eat"];
+});
       `;
     });
     // this is for dynamic progress
@@ -76,11 +86,16 @@ onMounted(() => {
         dynamicProgress.value > 100 ? (dynamicProgress.value = 0) : null;
       }, 1000);
     });
+    // this is for sectional progress
+    let progressSections = computed(() => {
+      return ["Preparing", "Chopped", "Cooked", "On Table", "Eat"];
+    });
 
     return {
       insertCode,
       importCode,
       templateCode,
+      progressSections,
       dynamicProgress,
     };
   },

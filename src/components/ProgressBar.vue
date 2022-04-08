@@ -2,16 +2,42 @@
   <div class="progress-wrapper">
     <div class="tube"></div>
     <div class="liquid" :style="liquidStyle"></div>
+    <div class="section-indicator">
+      <div
+        v-for="(section, index) in sections"
+        :key="index"
+        :style="sectionDotStyle(index)"
+        :class="[
+          'section-dot',
+          index === sections.length - 1 ? 'last' : '',
+          index === 0 ? 'first' : '',
+          currentProgress / 100 > index / sections.length ? 'passed' : '',
+        ]"
+      ></div>
+    </div>
+    <ul class="section-names" v-if="sections.length !== 0">
+      <li
+        v-for="(section, index) in sections"
+        :key="index"
+        :style="sectionStyle(index)"
+        :class="[
+          index === sections.length - 1 ? 'last' : '',
+          index === 0 ? 'first' : '',
+        ]"
+      >
+        {{ section }}
+      </li>
+    </ul>
     <div class="ball" :style="ballStyle">
       <div
-        v-if="textPosition === 'float-text'"
+        v-if="textPosition === 'float-text' && sections.length === 0"
         :class="['text-percentage', textPosition]"
       >
         {{ currentProgress }}%
       </div>
     </div>
     <div
-      v-if="textPosition === 'fixed-text'"
+      v-if="textPosition === 'fixed-text' && sections.length === 0"
       :class="['text-percentage', textPosition]"
     >
       {{ currentProgress }}%
@@ -33,6 +59,10 @@ export default {
       type: String,
       default: "",
     },
+    sections: {
+      type: Array,
+      default: () => [],
+    },
   },
   setup(props) {
     const liquidStyle = computed(() => {
@@ -45,7 +75,15 @@ export default {
         ? `left:${props.currentProgress}% `
         : "";
     });
-    return { liquidStyle, ballStyle };
+    const sectionDotStyle = (index) => {
+      if (index !== 0 && index !== props.sections.length - 1)
+        return `left: ${100 * (index / (props.sections.length - 1))}%;`;
+    };
+    const sectionStyle = (index) => {
+      if (index !== 0 && index !== props.sections.length - 1)
+        return `left: ${100 * (index / (props.sections.length - 1))}%;`;
+    };
+    return { liquidStyle, ballStyle, sectionDotStyle, sectionStyle };
   },
 };
 </script>
@@ -74,6 +112,49 @@ export default {
       left: 0;
     }
   }
+  .section-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--color-background-highlight);
+    border: 1px var(--color-border-hover) solid;
+    // box-shadow: 0 0 10px var(--color-background-highlight);
+    border-radius: 50%;
+    position: absolute;
+    top: -11px;
+    transition: 0.3s;
+    transform: translateX(-50%);
+    &.passed {
+      background: $green-light;
+    }
+    &.first {
+      left: 0;
+      transform: translate(0);
+    }
+    &.last {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+  }
+  .section-names {
+    position: relative;
+    top: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      display: inline-block;
+      position: absolute;
+      transform: translateX(-50%);
+      font-size: var(--label-text-size);
+      &.first {
+        left: 0;
+        transform: translate(0);
+      }
+      &.last {
+        left: 100%;
+        transform: translateX(-100%);
+      }
+    }
+  }
   .ball {
     width: 15px;
     height: 15px;
@@ -85,6 +166,7 @@ export default {
     margin-left: -7.5px;
     top: -2.5px;
     transition: 0.3s;
+    cursor: pointer;
     .text-percentage {
       display: none;
       &.float-text {
