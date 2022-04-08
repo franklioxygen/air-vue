@@ -43,6 +43,7 @@
 
   --invert-background-icon-light: invert(0);
   --invert-background-icon-dark: invert(0.7);
+  --invert-background-icon-darker: invert(0.85);
 }
 
 /* semantic color variables for this project */
@@ -65,7 +66,8 @@
 
   --color-code-background: var(--code-background-light);
 
-  --invert-background-icon: var(--invert-background-icon-light)
+  --invert-background-icon: var(--invert-background-icon-light);
+  --invert-completely: var(--invert-background-icon-light);
 }
 
 [data-theme="dark"] {
@@ -85,7 +87,8 @@
 
   --color-code-background: var(--code-background-dark);
 
-  --invert-background-icon: var(--invert-background-icon-dark)
+  --invert-background-icon: var(--invert-background-icon-dark);
+  --invert-completely: var(--invert-background-icon-darker);
 }
 // auto dark theme
 // @media (prefers-color-scheme: dark) {

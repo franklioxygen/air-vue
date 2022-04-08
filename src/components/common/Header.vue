@@ -11,6 +11,12 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>Vue Component Library</h3>
+    <a href="https://github.com/franklioxygen/VU" target="_blank">
+      <img
+        class="invert-mode"
+        src="../../assets/GitHub-Mark.png"
+        alt="Vue Logo"
+    /></a>
   </div>
 </template>
 
@@ -40,6 +46,23 @@ defineProps({
   h3 {
     font-size: 0.8rem;
     font-weight: 500;
+  }
+  a {
+    position: absolute;
+    right: 20px;
+    @media only screen and (max-width: 640px) {
+      right: 70px;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: 0.4s;
+      &.invert-mode {
+        -webkit-filter: var(--invert-completely);
+        filter: var(--invert-completely);
+      }
+    }
   }
 }
 </style>
