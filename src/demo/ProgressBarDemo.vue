@@ -49,7 +49,6 @@ export default {
     textPosition="fixed-text"
 />
 <!-- sectional progress bar -->
-<p>This is a sectional Progress Bar:</p>
 <ProgressBar :currentProgress="40" :sections="progressSections" />
       `;
     });
