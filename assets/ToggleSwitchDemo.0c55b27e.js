@@ -1,4 +1,4 @@
-import{_ as d,T as _}from"./index.8e2831b8.js";import{s as l,r as h,f as u,o as p,c as m,a as t,g as n,t as v,F as w}from"./vendor.54853348.js";const S={name:"ToggleSwitchDemo",components:{ToggleSwitch:_},setup(){const c=l(()=>`
+import{_ as d,T as _}from"./index.1d7aaf13.js";import{s as l,r as h,f as u,o as p,c as m,a as t,g as n,t as v,F as w}from"./vendor.54853348.js";const S={name:"ToggleSwitchDemo",components:{ToggleSwitch:_},setup(){const c=l(()=>`
 <ToggleSwitch
   id="demo-toggle-switch"
   :checked="checked.value"
