@@ -3,6 +3,7 @@
 set -e
 npm run build
 cd dist
+cp index.html 404.html
 git init
 # first time use: git checkout -b main
 git checkout main
