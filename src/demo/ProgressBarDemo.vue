@@ -13,7 +13,6 @@
     <p>This is a fixed text Progress Bar:</p>
     <ProgressBar
       :currentProgress="dynamicProgress.value"
-      :displayText="true"
       textPosition="fixed-text"
     />
     <!-- sectional progress bar -->
@@ -45,7 +44,6 @@ export default {
 <!-- fixed text progress bar -->
 <ProgressBar
     :currentProgress="dynamicProgress.value"
-    :displayText="true"
     textPosition="fixed-text"
 />
 <!-- sectional progress bar -->

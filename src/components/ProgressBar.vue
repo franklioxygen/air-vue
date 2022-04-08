@@ -113,14 +113,13 @@ export default {
     }
   }
   .section-dot {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
     background: var(--color-background-highlight);
-    border: 1px var(--color-border-hover) solid;
-    // box-shadow: 0 0 10px var(--color-background-highlight);
+    // border: 1px var(--color-border-hover) solid;
     border-radius: 50%;
     position: absolute;
-    top: -11px;
+    top: -10.5px;
     transition: 0.3s;
     transform: translateX(-50%);
     &.passed {
