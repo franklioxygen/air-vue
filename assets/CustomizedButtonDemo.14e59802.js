@@ -1,4 +1,4 @@
-import{C as m}from"./CustomizedButton.a9074318.js";import{_ as p}from"./index.e94bc48f.js";import{r as _,s as e,f as d,o as B,c as b,a as t,g as n,t as v,F as C}from"./vendor.54853348.js";const h={name:"CustomizedButtonDemo",components:{CustomizedButton:m},setup(){let u=_({clickCounter:0});const s=e(()=>`
+import{C as m}from"./CustomizedButton.6eb61ff8.js";import{_ as p}from"./index.4082a964.js";import{r as _,s as e,f as d,o as B,c as b,a as t,g as n,t as v,F as C}from"./vendor.54853348.js";const h={name:"CustomizedButtonDemo",components:{CustomizedButton:m},setup(){let u=_({clickCounter:0});const s=e(()=>`
 <CustomizedButton
   button-text="Primary Button"
   width="180px"
