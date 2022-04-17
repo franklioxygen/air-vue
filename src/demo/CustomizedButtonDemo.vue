@@ -9,7 +9,7 @@
     <CustomizedButton
       button-text="Primary Button"
       width="180px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="clickButtonEvent"
     />
     <div>
@@ -20,7 +20,7 @@
     <CustomizedButton
       button-text="Secondary Button"
       width="180px"
-      level="vu-btn-secondary"
+      level="av-btn-secondary"
     />
     <br />
     <CustomizedButton
@@ -53,7 +53,7 @@ export default {
 <CustomizedButton
   button-text="Primary Button"
   width="180px"
-  level="vu-btn-primary"
+  level="av-btn-primary"
   @click-button="clickButtonEvent"
 />
 <div>
@@ -63,7 +63,7 @@ export default {
 <CustomizedButton
   button-text="Secondary Button"
   width="180px"
-  level="vu-btn-secondary"
+  level="av-btn-secondary"
 />
 <CustomizedButton
   button-text="Disabled Button"

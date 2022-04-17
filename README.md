@@ -1,6 +1,6 @@
-## VU
+## Air Vue
 
-Demo: https://franklioxygen.github.io/VU/
+Demo: https://franklioxygen.github.io/air-vue/
 
 <img alt="Screen Shot 2022-04-05 at 11 16 32 PM" src="https://user-images.githubusercontent.com/2637636/161889060-c7c0b3b4-48c9-4f1c-896d-fc11a2f427ba.png">
 

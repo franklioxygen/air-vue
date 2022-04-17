@@ -9,6 +9,6 @@ git init
 git checkout main
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:franklioxygen/VU.git main:gh-pages
+git push -f git@github.com:franklioxygen/air-vue.git main:gh-pages
 
 cd -

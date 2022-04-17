@@ -33,13 +33,13 @@
     <CustomizedButton
       button-text="Default Slide Out"
       width="300px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="loadDefaultSlideout()"
     />
     <CustomizedButton
       button-text="Dynamic Component Slide Out"
       width="300px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="loadMultiScreenSlideout()"
     />
   </div>

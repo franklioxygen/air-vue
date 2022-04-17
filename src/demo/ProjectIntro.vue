@@ -1,7 +1,7 @@
 <template>
   <h3>Introduction</h3>
-  <p>VU is a set of open source components library for Vue3</p>
-  <p>It's implemented with Composition API</p>
+  <p>Air Vue is a set of open source components library for Vue3</p>
+  <p>It's light weight and implemented with Composition API</p>
   <h5>Setup</h5>
   <p>TBD</p>
 </template>

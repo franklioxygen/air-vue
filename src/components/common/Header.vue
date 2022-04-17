@@ -11,7 +11,7 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>Vue Component Library</h3>
-    <a href="https://github.com/franklioxygen/VU" target="_blank">
+    <a href="https://github.com/franklioxygen/air-vue" target="_blank">
       <img
         class="invert-mode"
         src="../../assets/GitHub-Mark.png"

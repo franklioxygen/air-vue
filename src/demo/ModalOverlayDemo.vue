@@ -34,13 +34,13 @@
     <CustomizedButton
       button-text="Default Modal"
       width="300px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="loadDefaultModal()"
     />
     <CustomizedButton
       button-text="Dynamic component Modal"
       width="300px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="loadMultiScreenModal()"
     />
   </div>

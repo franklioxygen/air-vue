@@ -7,7 +7,7 @@
     <CustomizedButton
       button-text="Success Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popSuccessMessage()"
     />
     <br />
@@ -15,7 +15,7 @@
     <CustomizedButton
       button-text="Warning Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popWarningMessage()"
     />
     <br />
@@ -23,7 +23,7 @@
     <CustomizedButton
       button-text="Failed Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popFailedMessage()"
     />
     <br />
@@ -31,7 +31,7 @@
     <CustomizedButton
       button-text="Info Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popInfoMessage()"
     />
     <br />

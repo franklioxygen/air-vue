@@ -1,7 +1,7 @@
 <template>
   <div class="button-wrapper">
     <button
-      :class="['vu-button', level]"
+      :class="['av-button', level]"
       :style="buttonStyle"
       @click="clickButtonEmit"
       :disabled="buttonProps.disabled"
@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .button-wrapper {
   position: relative;
-  .vu-button {
+  .av-button {
     color: var(--color-text-strong);
     text-align: center;
     text-decoration: none;
@@ -64,25 +64,25 @@ export default {
     transition-duration: 0.4s;
     cursor: pointer;
     border: 2px solid var(--color-border);
-    &.vu-btn-primary {
+    &.av-btn-primary {
       background-color: $green;
-      &.vu-btn-primary:hover {
+      &.av-btn-primary:hover {
         border: 2px solid $green-light;
       }
     }
-    &.vu-btn-secondary {
+    &.av-btn-secondary {
       background-color: var(--color-background-soft);
     }
   }
-  .vu-button:enabled:active {
+  .av-button:enabled:active {
     background-color: var(--color-background-highlight-2);
   }
-  .vu-button:hover {
+  .av-button:hover {
     box-sizing: border-box;
     color: var(--color-text-strong);
     border: 2px solid $green;
   }
-  .vu-button:disabled {
+  .av-button:disabled {
     color: var(--color-background-highlight);
     border: 2px solid var(--color-background-mute);
     cursor: not-allowed;

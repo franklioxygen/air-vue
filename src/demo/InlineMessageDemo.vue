@@ -6,25 +6,25 @@
     <CustomizedButton
       button-text="Success Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popSuccessMessage()"
     />
     <CustomizedButton
       button-text="Warning Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popWarningMessage()"
     />
     <CustomizedButton
       button-text="Failed Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popFailedMessage()"
     />
     <CustomizedButton
       button-text="Info Message"
       width="200px"
-      level="vu-btn-primary"
+      level="av-btn-primary"
       @click-button="popInfoMessage()"
     />
     <InlineMessage
