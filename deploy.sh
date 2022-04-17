@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+yarn build
+npm version patch
+npm publish
+
 set -e
 npm run build
 cd dist
