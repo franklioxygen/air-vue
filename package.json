@@ -1,5 +1,5 @@
 {
-  "name": "vu",
+  "name": "air-vue",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host",
