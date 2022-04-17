@@ -23,7 +23,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import SkeletonLoader from "../components/SkeletonLoader.vue";
+import SkeletonLoader from "../src/components/SkeletonLoader.vue";
 export default {
   name: "DropdownSelectDemo",
   components: { SkeletonLoader },
@@ -38,7 +38,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import SkeletonLoader from "../components/SkeletonLoader.vue";
+import SkeletonLoader from "../src/components/SkeletonLoader.vue";
       `;
     });
 

@@ -27,7 +27,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import DropdownSelect from "../components/DropdownSelect.vue";
+import DropdownSelect from "../src/components/DropdownSelect.vue";
 export default {
   name: "DropdownSelectDemo",
   components: { DropdownSelect },
@@ -46,7 +46,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import DropdownSelect from "../components/DropdownSelect.vue";
+import DropdownSelect from "../src/components/DropdownSelect.vue";
       `;
     });
     const templateCode = computed(() => {

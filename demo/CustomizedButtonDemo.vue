@@ -40,7 +40,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import CustomizedButton from "../components/CustomizedButton.vue";
+import CustomizedButton from "../src/components/CustomizedButton.vue";
 export default {
   name: "CustomizedButtonDemo",
   components: { CustomizedButton },
@@ -74,7 +74,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import CustomizedButton from "../components/CustomizedButton.vue";
+import CustomizedButton from "../src/components/CustomizedButton.vue";
       `;
     });
     const templateCode = computed(() => {

@@ -30,7 +30,7 @@
 
 <script>
 import { computed, onMounted, reactive } from "vue";
-import ProgressBar from "../components/ProgressBar.vue";
+import ProgressBar from "../src/components/ProgressBar.vue";
 export default {
   name: "ProgressBarDemo",
   components: { ProgressBar },
@@ -52,7 +52,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ProgressBar from "../components/ProgressBar.vue";
+import ProgressBar from "../src/components/ProgressBar.vue";
       `;
     });
     const templateCode = computed(() => {

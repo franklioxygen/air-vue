@@ -28,7 +28,7 @@
 <script setup>
 import { onMounted, reactive } from "@vue/runtime-core";
 import routes from "../../router/routes";
-import ToggleSwitch from "../ToggleSwitch.vue";
+import ToggleSwitch from "../../src/components/ToggleSwitch.vue";
 const emit = defineEmits(["change-route"]);
 const changeRoute = () => emit("change-route");
 let currentTheme = reactive({

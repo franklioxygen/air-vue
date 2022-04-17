@@ -1,6 +1,6 @@
 <script setup>
-import Header from "./components/common/Header.vue";
-import LeftNav from "./components/common/LeftNav.vue";
+import Header from "./demo/common/Header.vue";
+import LeftNav from "./demo/common/LeftNav.vue";
 let toggleList = () => {
   if (window.innerWidth > 640) return;
   let list = document.getElementsByClassName("left-nav")[0].classList;

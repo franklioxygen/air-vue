@@ -1,24 +1,23 @@
 <template>
-  <h3>Modal Overlay</h3>
+  <h3>Slide Out</h3>
   <p>
-    Modal Overlay is to open a modal on center of screen. It can load
+    Slide Out is to open a slideout from right or left side. It can load
     asynchronous and with multi screens.
   </p>
   <h5>Demo:</h5>
   <div class="demo-wrapper">
-    <ModalOverlay
-      :opened="modalProps.opened"
+    <SlideOut
+      :expanded="slideoutProps.expanded"
       :backable="dynamicComponent.components.length > 2"
-      :height="modalProps.height"
-      :width="modalProps.width"
+      :side="slideoutProps.side"
       @back-screen="backScreen"
     >
-      <!-- normal named Modal slots (optional)-->
+      <!-- normal named slideout slots (optional)-->
       <template #title>
-        {{ modalProps.title }}
+        {{ slideoutProps.title }}
       </template>
       <template #content>
-        {{ modalProps.content }}
+        {{ slideoutProps.content }}
       </template>
       <!-- load dynamic component slot (optional)-->
       <template #customComponent>
@@ -29,19 +28,19 @@
           @add-screen="addScreen"
         />
       </template>
-    </ModalOverlay>
+    </SlideOut>
 
     <CustomizedButton
-      button-text="Default Modal"
+      button-text="Default Slide Out"
       width="300px"
       level="av-btn-primary"
-      @click-button="loadDefaultModal()"
+      @click-button="loadDefaultSlideout()"
     />
     <CustomizedButton
-      button-text="Dynamic component Modal"
+      button-text="Dynamic Component Slide Out"
       width="300px"
       level="av-btn-primary"
-      @click-button="loadMultiScreenModal()"
+      @click-button="loadMultiScreenSlideout()"
     />
   </div>
   <h5>Usage:</h5>
@@ -55,43 +54,42 @@
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
-import ModalOverlay from "../components/ModalOverlay.vue";
-import CustomizedButton from "../components/CustomizedButton.vue";
+import SlideOut from "../src/components/SlideOut.vue";
+import CustomizedButton from "../src/components/CustomizedButton.vue";
 
 export default {
-  name: "ModalOverlayDemo",
-  components: { ModalOverlay, CustomizedButton },
+  name: "SlideOutDemo",
+  components: { SlideOut, CustomizedButton },
   setup() {
-    // define named slots modal example
-    let modalProps = reactive({
-      title: "Default modal Title",
-      content: "Default modal Content",
+    // define named slots slideout example
+    let slideoutProps = reactive({
+      title: "Default Slideout Title",
+      content: "Default Slideout Content",
     });
-    // define dynamic component modal example
+    // define dynamic component slideout example
     let dynamicComponent = reactive({
       components: [{}],
     });
-    // toggle modal and initial it
-    const toggleModal = () => {
+    // toggle slideout and initial it
+    const toggleSlideout = () => {
       dynamicComponent.components = [{}];
-      modalProps.title = null;
-      modalProps.content = null;
-      modalProps.height = undefined;
-      modalProps.width = undefined;
-      modalProps.opened = !modalProps.opened;
+      slideoutProps.title = null;
+      slideoutProps.content = null;
+      slideoutProps.side = undefined;
+      slideoutProps.expanded = !slideoutProps.expanded;
     };
-    // this is how to apply a normal named slots modal
+    // this is how to apply a normal named slots slideout
     // open from right is default
-    const loadDefaultModal = () => {
-      toggleModal();
-      modalProps.title = "Modal Title";
-      modalProps.content = "Modal Content";
+    const loadDefaultSlideout = () => {
+      toggleSlideout();
+      slideoutProps.title = "Slideout Title";
+      slideoutProps.content = "Slideout Content";
     };
-    // this is how to load dynamic component Modal
-    const loadMultiScreenModal = () => {
-      toggleModal();
-      modalProps.height = "400";
-      modalProps.width = "600";
+    // this is how to load dynamic component slideout
+    const loadMultiScreenSlideout = () => {
+      toggleSlideout();
+      // open from left side (optional)
+      slideoutProps.side = "left";
       dynamicComponent.components.unshift({
         key: "dummy-component-2",
         component: markRaw(
@@ -104,7 +102,7 @@ export default {
         ),
       });
     };
-    // this is how to add screen in a existing Modal
+    // this is how to add screen in a existing slideout
     const addScreen = () => {
       dynamicComponent.components.unshift({
         key: "dummy-component-1",
@@ -123,19 +121,18 @@ export default {
     };
     const insertCode = computed(() => {
       return `
-<ModalOverlay
-  :opened="modalProps.opened"
+<SlideOut
+  :expanded="slideoutProps.expanded"
   :backable="dynamicComponent.components.length > 2"
-  :height="modalProps.height"
-  :width="modalProps.width"
+  :side="slideoutProps.side"
   @back-screen="backScreen"
 >
-  <!-- normal named Modal slots (optional)-->
+  <!-- normal named slideout slots (optional)-->
   <template #title>
-    {{ modalProps.title }}
+    {{ slideoutProps.title }}
   </template>
   <template #content>
-    {{ modalProps.content }}
+    {{ slideoutProps.content }}
   </template>
   <!-- load dynamic component slot (optional)-->
   <template #customComponent>
@@ -146,46 +143,49 @@ export default {
       @add-screen="addScreen"
     />
   </template>
-</ModalOverlay>
+</SlideOut>
       `;
     });
     const importCode = computed(() => {
       return `
-import ModalTemplate from "../components/ModalTemplate.vue";
+import SlideOut from "../src/components/SlideOut.vue";
       `;
     });
     const templateCode = computed(() => {
       return `
-// define named slots modal example
-let modalProps = reactive({
-  title: "Default modal Title",
-  content: "Default modal Content",
+// define named slots slideout example
+let slideoutProps = reactive({
+  title: "Default Slideout Title",
+  content: "Default Slideout Content",
 });
-// define dynamic component modal example
+
+// define dynamic component slideout example
 let dynamicComponent = reactive({
   components: [{}],
 });
-// toggle modal and initial it
-const toggleModal = () => {
+
+// toggle slideout and initial it
+const toggleSlideout = () => {
   dynamicComponent.components = [{}];
-  modalProps.title = null;
-  modalProps.content = null;
-  modalProps.height = undefined;
-  modalProps.width = undefined;
-  modalProps.opened = !modalProps.opened;
+  slideoutProps.title = null;
+  slideoutProps.content = null;
+  slideoutProps.side = undefined;
+  slideoutProps.expanded = !slideoutProps.expanded;
 };
-// this is how to apply a normal named slots modal
+
+// this is how to apply a normal named slots slideout
 // open from right is default
-const loadDefaultModal = () => {
-  toggleModal();
-  modalProps.title = "Modal Title";
-  modalProps.content = "Modal Content";
+const loadDefaultSlideout = () => {
+  toggleSlideout();
+  slideoutProps.title = "Slideout Title";
+  slideoutProps.content = "Slideout Content";
 };
-// this is how to load dynamic component Modal
-const loadMultiScreenModal = () => {
-  toggleModal();
-  modalProps.height = "400";
-  modalProps.width = "600";
+
+// this is how to load dynamic component slideout
+const loadMultiScreenSlideout = () => {
+  toggleSlideout();
+  // open from left side (optional)
+  slideoutProps.side = "left";
   dynamicComponent.components.unshift({
     key: "dummy-component-2",
     component: markRaw(
@@ -198,7 +198,8 @@ const loadMultiScreenModal = () => {
     ),
   });
 };
-// this is how to add screen in a existing Modal
+
+// this is how to add screen in a existing slideout
 const addScreen = () => {
   dynamicComponent.components.unshift({
     key: "dummy-component-1",
@@ -218,11 +219,11 @@ const backScreen = () => {
       `;
     });
     return {
-      modalProps,
+      slideoutProps,
       dynamicComponent,
-      toggleModal,
-      loadDefaultModal,
-      loadMultiScreenModal,
+      toggleSlideout,
+      loadDefaultSlideout,
+      loadMultiScreenSlideout,
       addScreen,
       backScreen,
       insertCode,

@@ -24,7 +24,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import SearchBar from "../components/SearchBar.vue";
+import SearchBar from "../src/components/SearchBar.vue";
 export default {
   name: "SearchBarDemo",
   components: { SearchBar },
@@ -43,7 +43,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import SearchBar from "../components/SearchBar.vue";
+import SearchBar from "../src/components/SearchBar.vue";
       `;
     });
     const templateCode = computed(() => {

@@ -25,7 +25,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import ToggleSwitch from "../components/ToggleSwitch.vue";
+import ToggleSwitch from "../src/components/ToggleSwitch.vue";
 
 export default {
   name: "ToggleSwitchDemo",
@@ -43,7 +43,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ToggleSwitch from "../components/ToggleSwitch.vue";
+import ToggleSwitch from "../src/components/ToggleSwitch.vue";
       `;
     });
     const templateCode = computed(() => {

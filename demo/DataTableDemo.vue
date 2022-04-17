@@ -16,7 +16,7 @@
 
 <script>
 import { computed } from "vue";
-import DataTable from "../components/DataTable.vue";
+import DataTable from "../src/components/DataTable.vue";
 export default {
   name: "DataTableDemo",
   components: { DataTable },
@@ -28,7 +28,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import DataTable from "../components/DataTable.vue";
+import DataTable from "../src/components/DataTable.vue";
       `;
     });
     const templateCode = computed(() => {

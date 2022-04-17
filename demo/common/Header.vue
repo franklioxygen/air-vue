@@ -12,10 +12,7 @@ defineProps({
     <h1 class="green">{{ msg }}</h1>
     <h3>Vue Component Library</h3>
     <a href="https://github.com/franklioxygen/air-vue" target="_blank">
-      <img
-        class="invert-mode"
-        src="../../assets/GitHub-Mark.png"
-        alt="Vue Logo"
+      <img class="invert-mode" src="../assets/GitHub-Mark.png" alt="Vue Logo"
     /></a>
   </div>
 </template>

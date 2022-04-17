@@ -45,8 +45,8 @@
 
 <script>
 import { computed, reactive, ref } from "vue";
-import InlineMessage from "../components/InlineMessage.vue";
-import CustomizedButton from "../components/CustomizedButton.vue";
+import InlineMessage from "../src/components/InlineMessage.vue";
+import CustomizedButton from "../src/components/CustomizedButton.vue";
 export default {
   name: "InlineMessageDemo",
   components: { InlineMessage, CustomizedButton },
@@ -96,7 +96,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import InlineMessage from "../components/InlineMessage.vue";
+import InlineMessage from "../src/components/InlineMessage.vue";
       `;
     });
     const templateCode = computed(() => {

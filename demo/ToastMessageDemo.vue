@@ -52,8 +52,8 @@
 
 <script>
 import { computed, reactive, ref } from "vue";
-import ToastMessage from "../components/ToastMessage.vue";
-import CustomizedButton from "../components/CustomizedButton.vue";
+import ToastMessage from "../src/components/ToastMessage.vue";
+import CustomizedButton from "../src/components/CustomizedButton.vue";
 export default {
   name: "ToastMessageDemo",
   components: { ToastMessage, CustomizedButton },
@@ -122,7 +122,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ToastMessage from "../components/ToastMessage.vue";
+import ToastMessage from "../src/components/ToastMessage.vue";
       `;
     });
     const templateCode = computed(() => {
