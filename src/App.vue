@@ -52,7 +52,7 @@ let toggleList = () => {
         div {
           width: 35px;
           height: 4px;
-          background-color: $green;
+          background-color: var(--green);
           margin: 9px 0;
         }
       }
@@ -93,7 +93,7 @@ let toggleList = () => {
 a,
 .green {
   text-decoration: none;
-  color: $green;
+  color: var(--green);
   transition: 0.4s;
 }
 

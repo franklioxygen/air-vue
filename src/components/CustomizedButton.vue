@@ -65,9 +65,9 @@ export default {
     cursor: pointer;
     border: 2px solid var(--color-border);
     &.av-btn-primary {
-      background-color: $green;
+      background-color: var(--green);
       &.av-btn-primary:hover {
-        border: 2px solid $green-light;
+        border: 2px solid var(--green-light);
       }
     }
     &.av-btn-secondary {
@@ -80,7 +80,7 @@ export default {
   .av-button:hover {
     box-sizing: border-box;
     color: var(--color-text-strong);
-    border: 2px solid $green;
+    border: 2px solid var(--green);
   }
   .av-button:disabled {
     color: var(--color-background-highlight);

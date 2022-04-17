@@ -100,14 +100,14 @@ export default {
     border-radius: var(--input-radius);
   }
   .liquid {
-    background: $green;
+    background: var(--green);
     height: 10px;
     border-radius: var(--input-radius);
     position: absolute;
     top: 0;
     left: 0;
     transition: 0.3s;
-    box-shadow: inset -40px 0px 10px -10px $green-light;
+    box-shadow: inset -40px 0px 10px -10px var(--green-light);
     &.fixed-text {
       left: 0;
     }
@@ -123,7 +123,7 @@ export default {
     transition: 0.3s;
     transform: translateX(-50%);
     &.passed {
-      background: $green-light;
+      background: var(--green-light);
     }
     &.first {
       left: 0;
@@ -157,7 +157,7 @@ export default {
   .ball {
     width: 15px;
     height: 15px;
-    background: $green-light;
+    background: var(--green-light);
     border: 1px var(--color-border-hover) solid;
     box-shadow: 0 0 10px var(--color-background-highlight);
     border-radius: 50%;

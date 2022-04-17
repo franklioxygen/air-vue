@@ -73,7 +73,7 @@ onMounted(() => {
   }
   a {
     display: block;
-    color: $green;
+    color: var(--green);
     margin: 8px 0;
     @media only screen and (max-width: 640px) {
       margin: 15px 0;
@@ -81,7 +81,7 @@ onMounted(() => {
     }
   }
   .router-link-active {
-    border-left: 3px solid $green;
+    border-left: 3px solid var(--green);
     padding-left: 5px;
   }
 }

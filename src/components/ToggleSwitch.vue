@@ -74,7 +74,7 @@ export default {
     transition: 0.5s;
     cursor: pointer;
     &.active {
-      background: $green;
+      background: var(--green);
       .switch-bar {
         position: absolute;
         left: 28px;

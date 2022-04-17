@@ -1,5 +1,9 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  --green:hsla(160, 100%, 37%, 1);
+  --green-light:rgb(10, 243, 165);
+  --grey-light:hsla(0, 0%, 80%, 0.2);
+
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -129,10 +133,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   a {
-    color: $green;
+    color: var(--green);
   }
   a:hover{
-    color: $green-light;
+    color: var(--green-light);
   }
   h5 {
     border-bottom: 1px var(--vt-c-divider-dark-1) solid;
