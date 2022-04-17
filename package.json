@@ -1,15 +1,28 @@
 {
   "name": "air-vue",
   "version": "0.0.2",
-  "main": "./src/index.js",
+
   "files": [
     "dist"
   ],
+  "module": "./dist/build.es.ts",
+  "main": "./dist/build.umd.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/build.es.ts",
+      "require": "./dist/build.umd.ts"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
   "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/franklioxygen/air-vue.git"
   },
+  "license": "MIT",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -33,6 +46,7 @@
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
     "vite": "^2.8.4",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "webpack": "^5.72.0"
   }
 }
