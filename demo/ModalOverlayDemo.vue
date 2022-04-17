@@ -55,8 +55,7 @@
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
-import ModalOverlay from "../src/components/ModalOverlay.vue";
-import CustomizedButton from "../src/components/CustomizedButton.vue";
+import { ModalOverlay, CustomizedButton } from "../src";
 
 export default {
   name: "ModalOverlayDemo",

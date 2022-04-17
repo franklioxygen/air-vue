@@ -45,8 +45,7 @@
 
 <script>
 import { computed, reactive, ref } from "vue";
-import InlineMessage from "../src/components/InlineMessage.vue";
-import CustomizedButton from "../src/components/CustomizedButton.vue";
+import { InlineMessage, CustomizedButton } from "../src";
 export default {
   name: "InlineMessageDemo",
   components: { InlineMessage, CustomizedButton },

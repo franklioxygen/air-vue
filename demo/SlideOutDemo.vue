@@ -54,8 +54,7 @@
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
-import SlideOut from "../src/components/SlideOut.vue";
-import CustomizedButton from "../src/components/CustomizedButton.vue";
+import { SlideOut, CustomizedButton } from "../src";
 
 export default {
   name: "SlideOutDemo",

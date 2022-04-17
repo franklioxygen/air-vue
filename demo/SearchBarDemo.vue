@@ -24,7 +24,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import SearchBar from "../src/components/SearchBar.vue";
+import { SearchBar } from "../src";
 export default {
   name: "SearchBarDemo",
   components: { SearchBar },

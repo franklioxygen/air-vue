@@ -52,8 +52,8 @@
 
 <script>
 import { computed, reactive, ref } from "vue";
-import ToastMessage from "../src/components/ToastMessage.vue";
-import CustomizedButton from "../src/components/CustomizedButton.vue";
+import { ToastMessage, CustomizedButton } from "../src";
+
 export default {
   name: "ToastMessageDemo",
   components: { ToastMessage, CustomizedButton },

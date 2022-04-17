@@ -40,7 +40,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import CustomizedButton from "../src/components/CustomizedButton.vue";
+import { CustomizedButton } from "../src";
 export default {
   name: "CustomizedButtonDemo",
   components: { CustomizedButton },

@@ -30,7 +30,7 @@
 
 <script>
 import { computed, onMounted, reactive } from "vue";
-import ProgressBar from "../src/components/ProgressBar.vue";
+import { ProgressBar } from "../src";
 export default {
   name: "ProgressBarDemo",
   components: { ProgressBar },

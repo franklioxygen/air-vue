@@ -23,7 +23,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import SkeletonLoader from "../src/components/SkeletonLoader.vue";
+import { SkeletonLoader } from "../src";
 export default {
   name: "DropdownSelectDemo",
   components: { SkeletonLoader },

@@ -16,7 +16,7 @@
 
 <script>
 import { computed } from "vue";
-import DataTable from "../src/components/DataTable.vue";
+import { DataTable } from "../src";
 export default {
   name: "DataTableDemo",
   components: { DataTable },

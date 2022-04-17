@@ -27,7 +27,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import DropdownSelect from "../src/components/DropdownSelect.vue";
+import { DropdownSelect } from "../src";
 export default {
   name: "DropdownSelectDemo",
   components: { DropdownSelect },

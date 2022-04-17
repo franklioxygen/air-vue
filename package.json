@@ -1,6 +1,13 @@
 {
   "name": "air-vue",
   "version": "0.0.1",
+  "main": "./src/index.js",
+  "files": ["dist"],
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franklioxygen/air-vue.git"
+  },
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",

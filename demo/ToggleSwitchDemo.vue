@@ -25,7 +25,7 @@
 
 <script>
 import { computed, reactive } from "vue";
-import ToggleSwitch from "../src/components/ToggleSwitch.vue";
+import { ToggleSwitch } from "../src";
 
 export default {
   name: "ToggleSwitchDemo",
