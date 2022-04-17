@@ -2,9 +2,9 @@
 
 Demo: https://franklioxygen.github.io/air-vue/
 
-<img alt="Screen Shot 2022-04-05 at 11 16 32 PM" src="https://user-images.githubusercontent.com/2637636/161889060-c7c0b3b4-48c9-4f1c-896d-fc11a2f427ba.png">
+<img alt="Screen Shot 2022-04-17 at 1 55 12 PM" src="https://user-images.githubusercontent.com/2637636/163726494-66b13310-3ec5-4ce9-a63d-775094249b12.png">
 
-WIP: This is a Vue Component Library
+
 
 ## Recommended IDE Setup
 
