@@ -52,7 +52,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ProgressBar from "../src/components/ProgressBar.vue";
+import { ProgressBar } from "air-vue"";
       `;
     });
     const templateCode = computed(() => {

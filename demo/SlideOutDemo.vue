@@ -147,7 +147,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import SlideOut from "../src/components/SlideOut.vue";
+import { SlideOut } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

@@ -122,7 +122,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ToastMessage from "../src/components/ToastMessage.vue";
+import { ToastMessage } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

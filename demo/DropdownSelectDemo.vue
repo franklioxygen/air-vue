@@ -46,7 +46,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import DropdownSelect from "../src/components/DropdownSelect.vue";
+import { DropdownSelect } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

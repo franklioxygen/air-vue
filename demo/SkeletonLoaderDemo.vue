@@ -38,7 +38,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import SkeletonLoader from "../src/components/SkeletonLoader.vue";
+import { SkeletonLoader } from "air-vue";
       `;
     });
 

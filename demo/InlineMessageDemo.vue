@@ -95,7 +95,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import InlineMessage from "../src/components/InlineMessage.vue";
+import { InlineMessage } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

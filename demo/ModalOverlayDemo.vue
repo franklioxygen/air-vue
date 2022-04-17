@@ -150,7 +150,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ModalTemplate from "../src/components/ModalTemplate.vue";
+import { ModalTemplate } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

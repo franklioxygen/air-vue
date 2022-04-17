@@ -74,7 +74,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import CustomizedButton from "../src/components/CustomizedButton.vue";
+import { CustomizedButton } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

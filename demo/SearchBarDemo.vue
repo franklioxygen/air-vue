@@ -43,7 +43,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import SearchBar from "../src/components/SearchBar.vue";
+import { SearchBar } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

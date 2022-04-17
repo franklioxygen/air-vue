@@ -43,7 +43,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import ToggleSwitch from "../src/components/ToggleSwitch.vue";
+import { ToggleSwitch } from "air-vue";
       `;
     });
     const templateCode = computed(() => {

@@ -28,7 +28,7 @@ export default {
     });
     const importCode = computed(() => {
       return `
-import DataTable from "../src/components/DataTable.vue";
+import { DataTable } from "air-vue";
       `;
     });
     const templateCode = computed(() => {
