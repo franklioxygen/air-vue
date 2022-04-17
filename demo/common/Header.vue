@@ -10,7 +10,7 @@ defineProps({
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <h3>Vue Component Library</h3>
+    <h3>A light weight Vue component library</h3>
     <a href="https://github.com/franklioxygen/air-vue" target="_blank">
       <img class="invert-mode" src="../assets/GitHub-Mark.png" alt="Vue Logo"
     /></a>
@@ -38,17 +38,26 @@ defineProps({
     line-height: 1.7rem;
     transition: 0.4s;
     background: hsla(160, 100%, 37%, 0.2);
+    font-stretch: condensed;
+    @media only screen and (max-width: 640px) {
+      font-size: 1.5rem;
+      padding: 0.1rem 0.05rem 0.05rem 0.05rem;
+      letter-spacing: -0.1rem;
+    }
   }
 
   h3 {
     font-size: 0.8rem;
     font-weight: 500;
+    @media only screen and (max-width: 640px) {
+      width: 150px;
+    }
   }
   a {
     position: absolute;
     right: 20px;
     @media only screen and (max-width: 640px) {
-      right: 70px;
+      right: 60px;
     }
     img {
       width: 40px;
