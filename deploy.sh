@@ -3,6 +3,7 @@
 yarn build
 npm version patch
 npm publish
+git push origin main
 
 set -e
 npm run build
