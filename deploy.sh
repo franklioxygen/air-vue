@@ -5,8 +5,8 @@ yarn build
 npm version patch
 npm publish
 git push origin main
-mv vite.config.js vite.config.publish.npm.js
-mv vite.config.publish.gh-page.js vite.config.js
+mv vite.config.js vite.config.publish.npm
+mv vite.config.publish.gh-page vite.config.js
 
 #-------gh page publish
 set -e
@@ -20,5 +20,5 @@ git add -A
 git commit -m 'deploy'
 git push -f git@github.com:franklioxygen/air-vue.git main:gh-pages
 cd -
-mv vite.config.js vite.config.publish.gh-page.js
-mv vite.config.publish.npm.js vite.config.js
+mv vite.config.js vite.config.publish.gh-page
+mv vite.config.publish.npm vite.config.js
