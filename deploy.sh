@@ -21,3 +21,4 @@ git commit -m 'deploy'
 git push -f git@github.com:franklioxygen/air-vue.git main:gh-pages
 cd -
 git clean -f
+git reset
