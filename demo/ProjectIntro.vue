@@ -19,7 +19,8 @@ export default {
     const usageGuide = computed(() => {
       return `//main.js
 import "air-vue/dist/style.css";
-//App.vue import a Component
+// App.vue 
+// Import a Component
 import { ComponentNameHere } from "air-vue";
 `;
     });
