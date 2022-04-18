@@ -1,9 +1,11 @@
 #!/usr/bin/env sh
 
+# ----- npm publish 
 yarn build
 npm version patch
 npm publish
 git push origin main
+#----- end npm publish
 
 set -e
 npm run build

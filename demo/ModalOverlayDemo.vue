@@ -94,12 +94,7 @@ export default {
       dynamicComponent.components.unshift({
         key: "dummy-component-2",
         component: markRaw(
-          defineAsyncComponent(() =>
-            import(
-              /* webpackChunkName: "DynamicLoadDummy" */
-              "./dummy/DynamicLoadDummy-2.vue"
-            )
-          )
+          defineAsyncComponent(() => import("./dummy/DynamicLoadDummy-2.vue"))
         ),
       });
     };
@@ -108,12 +103,7 @@ export default {
       dynamicComponent.components.unshift({
         key: "dummy-component-1",
         component: markRaw(
-          defineAsyncComponent(() =>
-            import(
-              /* webpackChunkName: "DynamicLoadDummy" */
-              "./dummy/DynamicLoadDummy-1.vue"
-            )
-          )
+          defineAsyncComponent(() => import("./dummy/DynamicLoadDummy-1.vue"))
         ),
       });
     };
@@ -190,7 +180,6 @@ const loadMultiScreenModal = () => {
     component: markRaw(
       defineAsyncComponent(() =>
         import(
-          /* webpackChunkName: "DynamicLoadDummy" */
           "./dummy/DynamicLoadDummy-2.vue"
         )
       )
@@ -204,7 +193,6 @@ const addScreen = () => {
     component: markRaw(
       defineAsyncComponent(() =>
         import(
-          /* webpackChunkName: "DynamicLoadDummy" */
           "./dummy/DynamicLoadDummy-1.vue"
         )
       )

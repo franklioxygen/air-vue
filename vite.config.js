@@ -13,15 +13,10 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-  // import global css variables
-  css: {
-    preprocessorOptions: {
-      // scss: { additionalData: `@import "./src/assets/_variables.scss";` },
-    },
-  },
+  // ------npm publish build
   build: {
     lib: {
-      entry: path.resolve(__dirname, "./src/index.js"),
+      entry: path.resolve("./src/index.js"),
       name: "air-vue",
       fileName: (format) => `build.${format}.ts`,
     },
@@ -34,4 +29,5 @@ export default defineConfig({
       },
     },
   },
+  // ------end npm publish build
 });
