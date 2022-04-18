@@ -1,39 +1,35 @@
 ## Air Vue
 
-Demo: https://franklioxygen.github.io/air-vue/
+https://franklioxygen.github.io/air-vue/
 
-<img alt="Screen Shot 2022-04-17 at 1 55 12 PM" src="https://user-images.githubusercontent.com/2637636/163726494-66b13310-3ec5-4ce9-a63d-775094249b12.png">
+![npm](https://img.shields.io/npm/dm/air-vue)
+![NPM](https://img.shields.io/npm/l/air-vue)
+![npm](https://img.shields.io/npm/v/npm)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/air-vue)
+![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Ffranklioxygen.github.io%2Fair-vue%2F)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/franklioxygen/air-vue)
+![GitHub issues](https://img.shields.io/github/issues/franklioxygen/air-vue)
 
 
+### Introduction
 
-## Recommended IDE Setup
+Air Vue is a set of open source components library for Vue3
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+It's light weight and implemented with Composition API
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+### Install
 
 ```sh
-npm install
+npm install air-vue --save
 ```
 
-### Compile and Hot-Reload for Development
+### Usage
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+```js
+// main.js
+import "air-vue/dist/style.css";
+// App.vue 
+// Import a Component
+import { ComponentNameHere } from "air-vue";
 ```
