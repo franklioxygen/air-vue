@@ -19,8 +19,5 @@ git checkout main
 git add -A
 git commit -m 'deploy'
 git push -f git@github.com:franklioxygen/air-vue.git main:gh-pages
-mv vite.config.js vite.config.publish.gh-page.js
-mv vite.config.publish.npm.js vite.config.js
 cd -
 git stash
-rm vite.config.publish.npm.js
