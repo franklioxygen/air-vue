@@ -14,7 +14,7 @@ let toggleList = () => {
 
 <template>
   <div class="header-wrapper">
-    <Header msg="Air Vue" />
+    <Header msg="AirVue" />
     <span class="expand-nav" @click="toggleList">
       <div></div>
       <div></div>
@@ -51,9 +51,9 @@ let toggleList = () => {
         top: 15px;
         div {
           width: 35px;
-          height: 4px;
+          height: 1px;
           background-color: var(--green);
-          margin: 9px 0;
+          margin: 12px 0;
         }
       }
     }

@@ -20,8 +20,10 @@
     Slider <br />
     Tab Views <br />
     Accordion <br />
+    ThrowoutMenu <br />
     <hr />
     Accessibility <br />
+    Switch theme <br />
   </div>
 </template>
 

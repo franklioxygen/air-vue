@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <a href="/"
+    <a href="/air-vue/"
       ><h1 class="green">{{ msg }}</h1></a
     >
     <h3>A light weight Vue component library</h3>
@@ -38,14 +38,15 @@ defineProps({
   }
   a {
     h1 {
-      font-weight: 500;
+      font-weight: 200;
       font-size: 2rem;
-      border: 0.3rem solid hsla(160, 100%, 37%, 1);
+      border-bottom: thin solid hsla(160, 100%, 37%, 1);
       padding: 0.2rem 0.1rem 0.1rem 0.1rem;
       line-height: 1.7rem;
       transition: 0.4s;
       background: hsla(160, 100%, 37%, 0.2);
-      font-stretch: condensed;
+      top: 5px;
+      // font-stretch: condensed;
       @media only screen and (max-width: 640px) {
         font-size: 1.5rem;
         padding: 0.1rem 0.05rem 0.05rem 0.05rem;
