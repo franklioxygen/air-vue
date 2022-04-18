@@ -1,4 +1,3 @@
-import "./assets/base.scss";
 export { default as CustomizedButton } from "./components/CustomizedButton.vue";
 export { default as DataTable } from "./components/DataTable.vue";
 export { default as DropdownSelect } from "./components/DropdownSelect.vue";

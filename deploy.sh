@@ -1,12 +1,17 @@
 #!/usr/bin/env sh
 
-# ----- npm publish 
+#----- npm publish 
+mv vite.config.js vite.config.ghpage.js
+mv vite.config.publish.npm.js vite.config.js
 yarn build
 npm version patch
 npm publish
 git push origin main
-#----- end npm publish
 
+
+#-------gh page publish
+mv vite.config.js vite.config.publish.npm.js
+mv vite.config.ghpage.js vite.config.js
 set -e
 npm run build
 cd dist
