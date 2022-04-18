@@ -20,5 +20,5 @@ git add -A
 git commit -m 'deploy'
 git push -f git@github.com:franklioxygen/air-vue.git main:gh-pages
 cd -
-git reset --hard
-git clean -f
+mv vite.config.js vite.config.publish.gh-page.js
+mv vite.config.publish.npm.js vite.config.js
