@@ -78,7 +78,10 @@ export default {
       value: 0,
     });
     let updateBall = (e) => {
-      let coordinateX = isMobile ? e.touches[0].pageX - 40 : e.offsetX;
+      const touchOffsetX = isMobile
+        ? e.targetTouches[0].pageX - e.target.getBoundingClientRect().left
+        : null;
+      let coordinateX = isMobile ? touchOffsetX : e.offsetX;
       if (
         mouseDown.value &&
         coordinateX >= 0 &&
