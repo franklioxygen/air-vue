@@ -7,6 +7,7 @@ export { default as ModalOverlay } from "./components/ModalOverlay.vue";
 export { default as ProgressBar } from "./components/ProgressBar.vue";
 export { default as SearchBar } from "./components/SearchBar.vue";
 export { default as SkeletonLoader } from "./components/SkeletonLoader.vue";
+export { default as SlideBar } from "./components/SlideBar.vue";
 export { default as SlideOut } from "./components/SlideOut.vue";
 export { default as ToastMessage } from "./components/ToastMessage.vue";
 export { default as ToggleSwitch } from "./components/ToggleSwitch.vue";

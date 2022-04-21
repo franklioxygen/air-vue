@@ -17,10 +17,12 @@
     >
     <hr />
     Todo: <br />
-    Slider <br />
     Tab Views <br />
     Accordion <br />
     ThrowoutMenu <br />
+    <hr />
+    Utils: <br />
+    Device type
     <hr />
     Accessibility <br />
     Switch theme <br />

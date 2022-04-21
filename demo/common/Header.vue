@@ -14,7 +14,7 @@ defineProps({
     >
     <h3>A light weight Vue component library</h3>
     <a
-      class="ghlogo"
+      class="gh-logo"
       href="https://github.com/franklioxygen/air-vue"
       target="_blank"
     >
@@ -62,7 +62,7 @@ defineProps({
       width: 150px;
     }
   }
-  .ghlogo {
+  .gh-logo {
     position: absolute;
     right: 20px;
     @media only screen and (max-width: 640px) {

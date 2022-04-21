@@ -59,4 +59,9 @@ export default [
     path: "/progressBar",
     component: () => import("../demo/ProgressBarDemo.vue"),
   },
+  {
+    name: "Slide Bar",
+    path: "/slideBar",
+    component: () => import("../demo/SlideBarDemo.vue"),
+  },
 ];
