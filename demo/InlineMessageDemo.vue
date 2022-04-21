@@ -4,24 +4,28 @@
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <CustomizedButton
+      id="demo-inline-success-message"
       button-text="Success Message"
       width="200px"
       level="av-btn-primary"
       @click-button="popSuccessMessage()"
     />
     <CustomizedButton
+      id="demo-inline-warning-message"
       button-text="Warning Message"
       width="200px"
       level="av-btn-primary"
       @click-button="popWarningMessage()"
     />
     <CustomizedButton
+      id="demo-inline-failed-message"
       button-text="Failed Message"
       width="200px"
       level="av-btn-primary"
       @click-button="popFailedMessage()"
     />
     <CustomizedButton
+      id="demo-inline-info-message"
       button-text="Info Message"
       width="200px"
       level="av-btn-primary"

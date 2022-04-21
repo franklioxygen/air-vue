@@ -5,6 +5,7 @@
   <div class="demo-wrapper">
     <span>Multiple lines message:</span><br />
     <CustomizedButton
+      id="demo-toast-success-message"
       button-text="Success Message"
       width="200px"
       level="av-btn-primary"
@@ -13,6 +14,7 @@
     <br />
     <span>Message with html code:</span><br />
     <CustomizedButton
+      id="demo-toast-warning-message"
       button-text="Warning Message"
       width="200px"
       level="av-btn-primary"
@@ -21,6 +23,7 @@
     <br />
     <span>Delay close message:</span><br />
     <CustomizedButton
+      id="demo-toast-failed-message"
       button-text="Failed Message"
       width="200px"
       level="av-btn-primary"
@@ -29,6 +32,7 @@
     <br />
     <span>Normal Message:</span><br />
     <CustomizedButton
+      id="demo-toast-info-message"
       button-text="Info Message"
       width="200px"
       level="av-btn-primary"

@@ -32,12 +32,14 @@
     </ModalOverlay>
 
     <CustomizedButton
+      id="default-modal-button"
       button-text="Default Modal"
       width="300px"
       level="av-btn-primary"
       @click-button="loadDefaultModal()"
     />
     <CustomizedButton
+      id="dynamic-component-modal-button"
       button-text="Dynamic component Modal"
       width="300px"
       level="av-btn-primary"

@@ -3,7 +3,7 @@
     <div class="dark-mode-toggle">
       <ToggleSwitch
         id="change-theme"
-        :checked="isDarkMode().value"
+        :checked="!isDarkMode()"
         @toggle-switch="toggleSwitchEvent"
       />
       <span>{{ currentTheme.value }}</span>
@@ -48,7 +48,7 @@ const isDarkMode = () => {
   );
 };
 const toggleSwitchEvent = (event) => {
-  event
+  event.state
     ? (switchScheme("light"),
       (currentTheme.value = String.fromCodePoint(0x1f31d)))
     : (switchScheme("dark"),

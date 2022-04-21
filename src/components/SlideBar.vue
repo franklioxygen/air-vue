@@ -22,6 +22,7 @@
 
 <script>
 import { computed, onMounted, reactive } from "vue";
+import { isMobile } from "../";
 export default {
   name: "SlideBar",
   props: {
@@ -51,9 +52,6 @@ export default {
   },
   emits: ["slide-change"],
   setup(props, { emit }) {
-    // const rangeId = computed(() => {
-    //   return props.id;
-    // });
     const liquidStyle = computed(() => {
       return props.defaultSlideValue !== null
         ? `width: ${props.defaultSlideValue}%;`
@@ -79,23 +77,12 @@ export default {
     let rangeWidth = reactive({
       value: 0,
     });
-    let deviceType = computed(() => {
-      if (
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-      ) {
-        return "mobile";
-      }
-      return "desktop";
-    });
     let updateBall = (e) => {
-      let coordinateX =
-        deviceType.value === "mobile" ? e.touches[0].pageX - 40 : e.offsetX;
+      let coordinateX = isMobile ? e.touches[0].pageX - 40 : e.offsetX;
       if (
         mouseDown.value &&
-        coordinateX >= -1 &&
-        coordinateX <= rangeWidth.value + 1
+        coordinateX >= 0 &&
+        coordinateX <= rangeWidth.value
       ) {
         targetSlider.value.children[0].style.left = coordinateX + "px";
         targetSlider.value.children[1].style.width = coordinateX + "px";
@@ -112,6 +99,7 @@ export default {
     const start = (e) => {
       rangeWidth.value = targetSlider.value.offsetWidth;
       mouseDown.value = true;
+      document.querySelector("#app").classList.add("disable-select");
       updateBall(e);
       return false;
     };
@@ -120,6 +108,7 @@ export default {
       updateBall(e);
     };
     const end = () => {
+      document.querySelector("#app").classList.remove("disable-select");
       mouseDown.value = false;
     };
     onMounted(() => {

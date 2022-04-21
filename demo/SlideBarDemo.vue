@@ -5,7 +5,7 @@
   <div class="demo-wrapper">
     <!-- normal slide bar -->
     <p>This is a normal Slide Bar with default percentage:</p>
-    <div id="range-slider-1-value"></div>
+    <span id="range-slider-1-value"></span>
     <SlideBar
       id="range-slider-1"
       :default-slide-value="80"
@@ -14,7 +14,7 @@
     />
     <!-- fixed text slide bar  with custom number-->
     <p>This is a fixed text Slide Bar with custom number:</p>
-    <div id="range-slider-2-value"></div>
+    <span id="range-slider-2-value"></span>
     <SlideBar
       id="range-slider-2"
       :default-slide-value="0"
@@ -43,8 +43,6 @@ export default {
     const insertCode = computed(() => {
       return `
 <!-- normal slide bar -->
-<p>This is a normal Slide Bar with default percentage:</p>
-<div id="range-slider-1-value"></div>
 <SlideBar
   id="range-slider-1"
   :default-slide-value="80"
@@ -52,8 +50,6 @@ export default {
   @slide-change="slideChangeEvent"
 />
 <!-- fixed text slide bar  with custom number-->
-<p>This is a fixed text Slide Bar with custom number:</p>
-<div id="range-slider-2-value"></div>
 <SlideBar
   id="range-slider-2"
   :default-slide-value="0"

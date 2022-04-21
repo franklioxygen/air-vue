@@ -31,12 +31,14 @@
     </SlideOut>
 
     <CustomizedButton
+      id="default-slideout-button"
       button-text="Default Slide Out"
       width="300px"
       level="av-btn-primary"
       @click-button="loadDefaultSlideout()"
     />
     <CustomizedButton
+      id="dynamic-component-slideout-button"
       button-text="Dynamic Component Slide Out"
       width="300px"
       level="av-btn-primary"

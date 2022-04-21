@@ -58,10 +58,16 @@ export default {
     };
     const closeMsg = (id) => {
       const element = document.getElementById(id);
+
       new Promise((resolve) => {
-        element.classList.remove("expanded");
-        element.classList.add("collapsed");
-        resolve();
+        try {
+          // navigate away from the page will cause element to be removed
+          element.classList.remove("expanded");
+          element.classList.add("collapsed");
+          resolve();
+        } catch (e) {
+          resolve();
+        }
       }).then(() => {
         setTimeout(() => {
           emit("remove-msg-from-array", id);

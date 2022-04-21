@@ -7,6 +7,7 @@
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <CustomizedButton
+      id="demo-customized-button-1"
       button-text="Primary Button"
       width="180px"
       level="av-btn-primary"
@@ -14,16 +15,23 @@
     />
     <div>
       Button clicked:
-      {{ buttonEventReturnValue.clickCounter }} times.
+      <span id="demo-customized-button-1-value">0</span> times.
     </div>
     <br />
     <CustomizedButton
+      id="demo-customized-button-2"
       button-text="Secondary Button"
       width="180px"
       level="av-btn-secondary"
+      @click-button="clickButtonEvent"
     />
+    <div>
+      Button clicked:
+      <span id="demo-customized-button-2-value">0</span> times.
+    </div>
     <br />
     <CustomizedButton
+      id="demo-customized-button-3"
       button-text="Disabled Button"
       :button-props="disabledButtonProps"
       @click-button="clickButtonEvent"
@@ -37,35 +45,34 @@
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
 </template>
-
 <script>
-import { computed, reactive } from "vue";
+import { computed } from "vue";
 import { CustomizedButton } from "../src";
 export default {
   name: "CustomizedButtonDemo",
   components: { CustomizedButton },
   setup() {
-    let buttonEventReturnValue = reactive({
-      clickCounter: 0,
-    });
     const insertCode = computed(() => {
       return `
+<!-- Primary Button -->
 <CustomizedButton
+  id="demo-customized-button-1"
   button-text="Primary Button"
   width="180px"
   level="av-btn-primary"
   @click-button="clickButtonEvent"
 />
-<div>
-  Button clicked:
-  {{ buttonEventReturnValue.clickCounter }} times.
-</div>
+<!-- Secondary Button -->
 <CustomizedButton
+  id="demo-customized-button-2"
   button-text="Secondary Button"
   width="180px"
   level="av-btn-secondary"
+  @click-button="clickButtonEvent"
 />
+<!-- Disabled Button -->
 <CustomizedButton
+  id="demo-customized-button-3"
   button-text="Disabled Button"
   :button-props="disabledButtonProps"
   @click-button="clickButtonEvent"
@@ -80,12 +87,14 @@ import { CustomizedButton } from "air-vue";
     const templateCode = computed(() => {
       return `
 const disabledButtonProps = computed(() => {
-    return {
+  return {
     disabled: true, // optional
-    };
+  };
 });
-const clickButtonEvent = () => {
-    buttonEventReturnValue.clickCounter += 1;
+const clickButtonEvent = (event) => {
+  // Do something with the event
+  document.querySelector("#" + event.id + "-value").innerHTML =
+    parseInt(document.querySelector("#" + event.id + "-value").innerHTML) + 1;
 };
       `;
     });
@@ -94,11 +103,13 @@ const clickButtonEvent = () => {
         disabled: true, // optional
       };
     });
-    const clickButtonEvent = () => {
-      buttonEventReturnValue.clickCounter += 1;
+    const clickButtonEvent = (event) => {
+      // Do something with the event
+      document.querySelector("#" + event.id + "-value").innerHTML =
+        parseInt(document.querySelector("#" + event.id + "-value").innerHTML) +
+        1;
     };
     return {
-      buttonEventReturnValue,
       insertCode,
       importCode,
       templateCode,

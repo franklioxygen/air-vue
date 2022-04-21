@@ -5,13 +5,13 @@
   <div class="demo-wrapper">
     <ToggleSwitch
       id="demo-toggle-switch"
-      :checked="checked.value"
+      :checked="true"
       :toggle-props="toggleProps"
       @toggle-switch="toggleSwitchEvent"
     />
     <div>
       This is the value return from Toggle:
-      {{ toggleEventReturnValue.returnValue }}
+      <span id="demo-toggle-switch-value"></span>
     </div>
   </div>
   <h5>Usage:</h5>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { computed, reactive } from "vue";
+import { computed } from "vue";
 import { ToggleSwitch } from "../src";
 
 export default {
@@ -35,9 +35,9 @@ export default {
       return `
 <ToggleSwitch
   id="demo-toggle-switch"
-  :checked="checked.value"
+  :checked="false"
   :toggle-props="toggleProps"
-  @toggle-switch="toggleButtonEvent"
+  @toggle-switch="toggleSwitchEvent"
 />
       `;
     });
@@ -48,25 +48,16 @@ import { ToggleSwitch } from "air-vue";
     });
     const templateCode = computed(() => {
       return `
-const checked = reactive({
-    value: false,
-});
 const toggleProps = computed(() => {
-    return {
-        label: "Toggle Switch",
-    };
+  return {
+    label: "Toggle Switch",
+  };
 });
 const toggleSwitchEvent = (event) => {
-    // Do something with the event
-    toggleEventReturnValue.returnValue = event;
+  // Do something with the event
+  document.querySelector("#" + event.id + "-value").innerHTML = event.state;
 };
       `;
-    });
-    const checked = reactive({
-      value: false,
-    });
-    let toggleEventReturnValue = reactive({
-      returnValue: checked.value,
     });
     const toggleProps = computed(() => {
       return {
@@ -75,11 +66,9 @@ const toggleSwitchEvent = (event) => {
     });
     const toggleSwitchEvent = (event) => {
       // Do something with the event
-      toggleEventReturnValue.returnValue = event;
+      document.querySelector("#" + event.id + "-value").innerHTML = event.state;
     };
     return {
-      toggleEventReturnValue,
-      checked,
       toggleProps,
       insertCode,
       importCode,

@@ -40,12 +40,11 @@ export default {
       moveBar();
     };
     const toggleButtonEmit = (state) => {
-      emit("toggle-switch", state);
+      emit("toggle-switch", { id: props.id, state: state });
     };
     const moveBar = () => {
-      const targetBox = (event.path || event.composedPath()).filter((e) =>
-        e.classList ? e.classList.contains("switch-box") : ""
-      )[0].classList;
+      const targetBox = document.querySelector("#" + props.id).parentElement
+        .children[1].classList;
       targetBox.toggle("active");
       document.getElementById(props.id).checked = !document.getElementById(
         props.id

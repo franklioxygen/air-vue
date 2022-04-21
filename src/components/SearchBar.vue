@@ -16,6 +16,10 @@ import { computed } from "vue";
 export default {
   name: "SearchBar",
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     width: {
       type: String,
       default: "",
@@ -32,7 +36,7 @@ export default {
       return props.width !== null ? `width: ${props.width}` : "";
     });
     const submitSearchEmit = (keyword) => {
-      emit("submit-search", keyword);
+      emit("submit-search", { id: props.id, keyword: keyword });
     };
     return { keyword, searchStyle, submitSearchEmit };
   },

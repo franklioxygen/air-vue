@@ -16,6 +16,10 @@ import { computed } from "vue";
 export default {
   name: "CustomizedButton",
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     buttonText: {
       type: String,
       default: "Click me",
@@ -43,7 +47,7 @@ export default {
       };
     });
     const clickButtonEmit = () => {
-      emit("click-button");
+      emit("click-button", { id: props.id });
     };
     return {
       buttonStyle,

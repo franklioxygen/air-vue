@@ -7,13 +7,14 @@
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <DropdownSelect
+      id="demo-dropdown-select"
       width="200px"
       :dropdown-props="dropdownProps"
       @apply-dropdown="applyDropdownEvent"
     />
     <div>
       This is the value return from Dropdown:
-      {{ dropdownEventReturnValue.returnValue }}
+      <span id="demo-dropdown-select-value"></span>
     </div>
   </div>
   <h5>Usage:</h5>
@@ -26,18 +27,16 @@
 </template>
 
 <script>
-import { computed, reactive } from "vue";
+import { computed } from "vue";
 import { DropdownSelect } from "../src";
 export default {
   name: "DropdownSelectDemo",
   components: { DropdownSelect },
   setup() {
-    let dropdownEventReturnValue = reactive({
-      returnValue: " select one",
-    });
     const insertCode = computed(() => {
       return `
 <DropdownSelect
+  id="demo-dropdown-select"
   width="200px"
   :dropdown-props="dropdownProps"
   @apply-dropdown="applyDropdownEvent"
@@ -51,12 +50,6 @@ import { DropdownSelect } from "air-vue";
     });
     const templateCode = computed(() => {
       return `
-<DropdownSelect
-  width="200px"
-  :dropdown-props="dropdownProps"
-  @apply-dropdown="applyDropdownEvent"
-/>
-
 const dropdownProps = computed(() => {
   return {
     title: "Demo Dropdown Title", //optional
@@ -78,9 +71,9 @@ const dropdownProps = computed(() => {
     ],
   };
 });
-const applyDropdown = (event) => {
+const applyDropdownEvent = (event) => {
   // Do something with the event
-  dropdownEventReturnValue.returnValue = event;
+  document.querySelector("#" + event.id + "-value").innerHTML = event.value;
 };
       `;
     });
@@ -107,10 +100,9 @@ const applyDropdown = (event) => {
     });
     const applyDropdownEvent = (event) => {
       // Do something with the event
-      dropdownEventReturnValue.returnValue = event;
+      document.querySelector("#" + event.id + "-value").innerHTML = event.value;
     };
     return {
-      dropdownEventReturnValue,
       insertCode,
       importCode,
       templateCode,

@@ -4,13 +4,14 @@
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <SearchBar
+      id="demo-search-bar"
       width="200px"
       :search-props="searchProps"
       @submit-search="submitSearchEvent"
     />
     <div>
       This is the value return from Search:
-      {{ searchEventReturnValue.returnValue }}
+      <span id="demo-search-bar-value"></span>
     </div>
   </div>
   <h5>Usage:</h5>
@@ -23,18 +24,16 @@
 </template>
 
 <script>
-import { computed, reactive } from "vue";
+import { computed } from "vue";
 import { SearchBar } from "../src";
 export default {
   name: "SearchBarDemo",
   components: { SearchBar },
   setup() {
-    let searchEventReturnValue = reactive({
-      returnValue: "keyword",
-    });
     const insertCode = computed(() => {
       return `
 <SearchBar
+  id="demo-search-bar"
   width="200px"
   :search-props="searchProps"
   @submit-search="submitSearchEvent"
@@ -49,13 +48,14 @@ import { SearchBar } from "air-vue";
     const templateCode = computed(() => {
       return `
 const searchProps = computed(() => {
-    return {
-        placeholder: "Search Something", // optional
-    };
+  return {
+    placeholder: "Search Something", // optional
+  };
 });
-const submitSearch = (event) => {
-    // Do something with the event
-    searchEventReturnValue.returnValue = event;
+const submitSearchEvent = (event) => {
+  // Do something with the event
+  document.querySelector("#" + event.id + "-value").innerHTML =
+    event.keyword;
 };
       `;
     });
@@ -66,10 +66,10 @@ const submitSearch = (event) => {
     });
     const submitSearchEvent = (event) => {
       // Do something with the event
-      searchEventReturnValue.returnValue = event;
+      document.querySelector("#" + event.id + "-value").innerHTML =
+        event.keyword;
     };
     return {
-      searchEventReturnValue,
       insertCode,
       importCode,
       templateCode,

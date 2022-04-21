@@ -28,6 +28,10 @@ import { computed } from "vue";
 export default {
   name: "DropdownSelect",
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     width: {
       type: String,
       default: "",
@@ -43,7 +47,7 @@ export default {
       return props.width !== null ? `width: ${props.width}` : "";
     });
     const applyDropdownEmit = (event) => {
-      emit("apply-dropdown", event.target.value);
+      emit("apply-dropdown", { id: props.id, value: event.target.value });
     };
     return {
       dropdownStyle,
