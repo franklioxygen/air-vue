@@ -64,4 +64,9 @@ export default [
     path: "/slideBar",
     component: () => import("../demo/SlideBarDemo.vue"),
   },
+  {
+    name: "Tab View",
+    path: "/tabView",
+    component: () => import("../demo/TabViewDemo.vue"),
+  },
 ];
