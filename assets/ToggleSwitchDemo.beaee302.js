@@ -1,4 +1,4 @@
-import{_ as d,T as p}from"./index.252a51ef.js";import"./deviceType.c94b9e4a.js";import{s as o,f as r,o as u,c as _,a as e,g as l,F as m,j as w}from"./vendor.54853348.js";const S={name:"ToggleSwitchDemo",components:{ToggleSwitch:p},setup(){const c=o(()=>`
+import{_ as d,T as p}from"./index.482c4abd.js";import"./deviceType.a084d7fc.js";import{s as o,f as r,o as u,c as _,a as e,g as l,F as m,j as w}from"./vendor.54853348.js";const S={name:"ToggleSwitchDemo",components:{ToggleSwitch:p},setup(){const c=o(()=>`
 <ToggleSwitch
   id="demo-toggle-switch"
   :checked="false"

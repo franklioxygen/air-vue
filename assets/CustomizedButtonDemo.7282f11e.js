@@ -1,4 +1,4 @@
-import{_ as p}from"./index.252a51ef.js";import{C as B}from"./CustomizedButton.c4d2a06c.js";import"./deviceType.c94b9e4a.js";import{s as n,f as a,o as _,c as b,a as t,g as e,F as v,j as u}from"./vendor.54853348.js";const h={name:"CustomizedButtonDemo",components:{CustomizedButton:B},setup(){const c=n(()=>`
+import{_ as p}from"./index.482c4abd.js";import{C as B}from"./CustomizedButton.e407ff45.js";import"./deviceType.a084d7fc.js";import{s as n,f as a,o as _,c as b,a as t,g as e,F as v,j as u}from"./vendor.54853348.js";const h={name:"CustomizedButtonDemo",components:{CustomizedButton:B},setup(){const c=n(()=>`
 <!-- Primary Button -->
 <CustomizedButton
   id="demo-customized-button-1"
