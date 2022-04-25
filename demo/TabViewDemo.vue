@@ -93,16 +93,7 @@ let demo1TabsProps = reactive({
         risus, sed ultricies tellus pellentesque et.',
       key: "tab-1",
     },
-    {
-      title: "Tab 2",
-      content: "Tab-2-content",
-      key: "tab-2",
-    },
-    {
-      title: "Tab 3",
-      content: "Tab-3-content",
-      key: "tab-3",
-    },
+    ...
   ],
 });
 let demo2TabsProps = reactive({
@@ -115,13 +106,7 @@ let demo2TabsProps = reactive({
       ),
       key: "tab-1",
     },
-    {
-      title: "Tab 2",
-      content: markRaw(
-        defineAsyncComponent(() => import("./dummy/DynamicLoadDummy-1.vue"))
-      ),
-      key: "tab-2",
-    },
+    ...
   ],
 });
 const tab1Change = (event) => {

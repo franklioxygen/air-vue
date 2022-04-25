@@ -69,4 +69,9 @@ export default [
     path: "/tabView",
     component: () => import("../demo/TabViewDemo.vue"),
   },
+  {
+    name: "Accordion",
+    path: "/accordionView",
+    component: () => import("../demo/AccordionViewDemo.vue"),
+  },
 ];
