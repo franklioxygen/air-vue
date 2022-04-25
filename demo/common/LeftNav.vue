@@ -18,7 +18,11 @@
     <hr />
     Todo: <br />
     ThrowoutMenu <br />
+    BreadCrumb <br />
+    Carousel <br />
+    Galleria <br />
     <hr />
+    Documentation <br />
     Accessibility <br />
     Switch theme <br />
   </div>
