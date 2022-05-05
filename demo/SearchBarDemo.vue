@@ -14,6 +14,7 @@
       <span id="demo-search-bar-value"></span>
     </div>
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -25,10 +26,10 @@
 
 <script>
 import { computed } from "vue";
-import { SearchBar } from "../src";
+import { SearchBar, DataTable } from "../src";
 export default {
   name: "SearchBarDemo",
-  components: { SearchBar },
+  components: { SearchBar, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -59,6 +60,63 @@ const submitSearchEvent = (event) => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "id",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "identify the component",
+          },
+          {
+            name: "width",
+            type: "String",
+            required: "false",
+            default: "100%",
+            description: "width of the component",
+          },
+          {
+            name: "search-props",
+            type: "Array",
+            required: "true",
+            default: "-",
+            description: "placeholder for the search",
+          },
+          {
+            name: "submit-search",
+            type: "<Event>",
+            required: "true",
+            default: "-",
+            description: "received data when event is triggered",
+          },
+        ],
+      };
+    });
     const searchProps = computed(() => {
       return {
         placeholder: "Search Something", // optional
@@ -73,6 +131,7 @@ const submitSearchEvent = (event) => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       searchProps,
       submitSearchEvent,
     };

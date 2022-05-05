@@ -14,6 +14,7 @@
       <span id="demo-toggle-switch-value"></span>
     </div>
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -25,11 +26,11 @@
 
 <script>
 import { computed } from "vue";
-import { ToggleSwitch } from "../src";
+import { ToggleSwitch, DataTable } from "../src";
 
 export default {
   name: "ToggleSwitchDemo",
-  components: { ToggleSwitch },
+  components: { ToggleSwitch, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -59,6 +60,63 @@ const toggleSwitchEvent = (event) => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "id",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "identify the component",
+          },
+          {
+            name: "checked",
+            type: "Boolean",
+            required: "true",
+            default: "false",
+            description: "default checked state",
+          },
+          {
+            name: "toggle-props",
+            type: "Array",
+            required: "false",
+            default: "-",
+            description: "label for the switch",
+          },
+          {
+            name: "toggle-switch",
+            type: "<Event>",
+            required: "true",
+            default: "-",
+            description: "received state when event is triggered",
+          },
+        ],
+      };
+    });
     const toggleProps = computed(() => {
       return {
         label: "Toggle Switch",
@@ -69,10 +127,11 @@ const toggleSwitchEvent = (event) => {
       document.querySelector("#" + event.id + "-value").innerHTML = event.state;
     };
     return {
-      toggleProps,
       insertCode,
       importCode,
       templateCode,
+      tableProps,
+      toggleProps,
       toggleSwitchEvent,
     };
   },

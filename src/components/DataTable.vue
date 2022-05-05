@@ -1,6 +1,6 @@
 <template>
   <div class="table-wrapper" :style="tableStyle">
-    <span class="table-title">{{ tableProps.title }}</span>
+    <div class="table-title">{{ tableProps.title }}</div>
     <table class="table">
       <thead>
         <tr>
@@ -49,9 +49,7 @@ export default {
 .table-wrapper {
   .table-title {
     font-size: 1.2rem;
-    // font-weight: bold;
-    text-align: center;
-    padding: 0.5rem 0;
+    padding: 1.5rem 0 0.5rem 0;
   }
   .table {
     width: 100%;

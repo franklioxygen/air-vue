@@ -30,7 +30,7 @@
     "preview": "vite preview --port 5050",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
-  "dependencies": {
+  "peerDependencies": {
     "vue": "^3.2.31"
   },
   "devDependencies": {

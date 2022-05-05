@@ -17,6 +17,7 @@
       <span id="demo-dropdown-select-value"></span>
     </div>
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -28,10 +29,10 @@
 
 <script>
 import { computed } from "vue";
-import { DropdownSelect } from "../src";
+import { DropdownSelect, DataTable } from "../src";
 export default {
   name: "DropdownSelectDemo",
-  components: { DropdownSelect },
+  components: { DropdownSelect, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -77,6 +78,63 @@ const applyDropdownEvent = (event) => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "id",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "identify the component",
+          },
+          {
+            name: "width",
+            type: "String",
+            required: "false",
+            default: "100%",
+            description: "width of the component",
+          },
+          {
+            name: "dropdown-props",
+            type: "Array",
+            required: "true",
+            default: "-",
+            description: "options for the dropdown",
+          },
+          {
+            name: "apply-dropdown",
+            type: "<Event>",
+            required: "true",
+            default: "-",
+            description: "received data when event is triggered",
+          },
+        ],
+      };
+    });
     const dropdownProps = computed(() => {
       return {
         title: "Demo Dropdown Title", //optional
@@ -106,6 +164,7 @@ const applyDropdownEvent = (event) => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       dropdownProps,
       applyDropdownEvent,
     };

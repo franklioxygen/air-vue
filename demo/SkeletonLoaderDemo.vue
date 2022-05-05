@@ -14,6 +14,7 @@
       height="2rem"
     />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -22,15 +23,12 @@
 </template>
 
 <script>
-import { computed, reactive } from "vue";
-import { SkeletonLoader } from "../src";
+import { computed } from "vue";
+import { SkeletonLoader, DataTable } from "../src";
 export default {
   name: "DropdownSelectDemo",
-  components: { SkeletonLoader },
+  components: { SkeletonLoader, DataTable },
   setup() {
-    let searchEventReturnValue = reactive({
-      returnValue: "keyword",
-    });
     const insertCode = computed(() => {
       return `
 <SkeletonLoader width="50px" height="50px" borderRadius="50%" />
@@ -41,11 +39,60 @@ export default {
 import { SkeletonLoader } from "air-vue";
       `;
     });
-
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "width",
+            type: "String",
+            required: "false",
+            default: "100%",
+            description: "width the loader",
+          },
+          {
+            name: "height",
+            type: "String",
+            required: "false",
+            default: "1rem",
+            description: "height the loader",
+          },
+          {
+            name: "borderRadius",
+            type: "String",
+            required: "false",
+            default: "0.25rem",
+            description: "border radius the loader",
+          },
+        ],
+      };
+    });
     return {
-      searchEventReturnValue,
       insertCode,
       importCode,
+      tableProps,
     };
   },
 };
