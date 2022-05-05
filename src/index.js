@@ -13,5 +13,6 @@ export { default as ToastMessage } from "./components/ToastMessage.vue";
 export { default as ToggleSwitch } from "./components/ToggleSwitch.vue";
 export { default as TabView } from "./components/TabView.vue";
 export { default as AccordionView } from "./components/AccordionView.vue";
+export { default as BreadCrumb } from "./components/BreadCrumb.vue";
 
 export { isMobile, isDesktop } from "./utils/deviceType";

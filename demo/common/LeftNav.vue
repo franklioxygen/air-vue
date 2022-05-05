@@ -18,7 +18,6 @@
     <hr />
     Todo: <br />
     ThrowoutMenu <br />
-    BreadCrumb <br />
     Carousel <br />
     Galleria <br />
     Pagination <br />

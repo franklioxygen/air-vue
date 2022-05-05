@@ -74,4 +74,9 @@ export default [
     path: "/accordionView",
     component: () => import("../demo/AccordionViewDemo.vue"),
   },
+  {
+    name: "Bread Crumb",
+    path: "/breadCrumb",
+    component: () => import("../demo/BreadCrumbDemo.vue"),
+  },
 ];
