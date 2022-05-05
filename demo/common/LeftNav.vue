@@ -21,8 +21,8 @@
     BreadCrumb <br />
     Carousel <br />
     Galleria <br />
+    Pagination <br />
     <hr />
-    Documentation <br />
     Accessibility <br />
     Switch theme <br />
   </div>

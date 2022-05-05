@@ -24,6 +24,7 @@
       @slide-change="slideChangeEvent"
     />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -35,10 +36,10 @@
 
 <script>
 import { computed } from "vue";
-import { SlideBar } from "../src";
+import { SlideBar, DataTable } from "../src";
 export default {
   name: "SlideBarDemo",
-  components: { SlideBar },
+  components: { SlideBar, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -74,7 +75,77 @@ const slideChangeEvent = (event) => {
 };
       `;
     });
-
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "id",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "identifier of component",
+          },
+          {
+            name: "default-slide-value",
+            type: "Number",
+            required: "false",
+            default: "0",
+            description: "default slide value",
+          },
+          {
+            name: "text-position",
+            type: "String",
+            required: "false",
+            default: "fixed-text",
+            description: "text position of bar",
+          },
+          {
+            name: "max-slide-value",
+            type: "Number",
+            required: "false",
+            default: "100",
+            description: "max value of bar",
+          },
+          {
+            name: "range-type",
+            type: "String",
+            required: "false",
+            default: "percentage",
+            description: "number or percentage",
+          },
+          {
+            name: "slide-change",
+            type: "<Event>",
+            required: "true",
+            default: "-",
+            description: "event when slide bar value changed",
+          },
+        ],
+      };
+    });
     const slideChangeEvent = (event) => {
       // Do something with the event
       document.querySelector("#" + event.id + "-value").innerHTML =
@@ -84,6 +155,7 @@ const slideChangeEvent = (event) => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       slideChangeEvent,
     };
   },

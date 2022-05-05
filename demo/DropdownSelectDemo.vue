@@ -120,7 +120,7 @@ const applyDropdownEvent = (event) => {
           },
           {
             name: "dropdown-props",
-            type: "Array",
+            type: "Object",
             required: "true",
             default: "-",
             description: "options for the dropdown",

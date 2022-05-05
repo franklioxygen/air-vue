@@ -18,7 +18,7 @@
     <p>This is a dynamic component Tab View:</p>
     <TabView
       id="demo-tab-view-2"
-      :isDynamic="true"
+      :is-dynamic="true"
       :tabs-props="demo2TabsProps"
       @change-tab="tab2Change"
     >
@@ -30,7 +30,7 @@
       </template>
     </TabView>
   </div>
-
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -42,11 +42,11 @@
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
-import { TabView } from "../src";
+import { TabView, DataTable } from "../src";
 
 export default {
   name: "TabViewDemo",
-  components: { TabView },
+  components: { TabView, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -62,7 +62,7 @@ export default {
 <p>This is a dynamic component Tab View:</p>
 <TabView
   id="demo-tab-view-2"
-  :isDynamic="true"
+  :is-dynamic="true"
   :tabs-props="demo2TabsProps"
   @change-tab="tab2Change"
 >
@@ -117,6 +117,63 @@ const tab2Change = (event) => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "id",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "identifier of the tab view",
+          },
+          {
+            name: "tabs-props",
+            type: "Object",
+            required: "true",
+            default: "-",
+            description: "tab contents",
+          },
+          {
+            name: "is-dynamic",
+            type: "Boolean",
+            required: "false",
+            default: "false",
+            description: "whether to use dynamic component",
+          },
+          {
+            name: "change-tab",
+            type: "<Event>",
+            required: "true",
+            default: "-",
+            description: "load content of the tab",
+          },
+        ],
+      };
+    });
     let demo1TabsProps = reactive({
       activeTab: 0, // default active tab
       tabs: [
@@ -169,6 +226,7 @@ const tab2Change = (event) => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       demo1TabsProps,
       demo2TabsProps,
       tab1Change,

@@ -102,7 +102,7 @@ const toggleSwitchEvent = (event) => {
           },
           {
             name: "toggle-props",
-            type: "Array",
+            type: "Object",
             required: "false",
             default: "-",
             description: "label for the switch",

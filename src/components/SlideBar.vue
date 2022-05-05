@@ -33,7 +33,6 @@ export default {
     defaultSlideValue: {
       type: Number,
       default: 0,
-      required: true,
     },
     maxSlideValue: {
       type: Number,

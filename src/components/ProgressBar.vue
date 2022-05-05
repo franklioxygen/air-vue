@@ -53,11 +53,10 @@ export default {
     currentProgress: {
       type: Number,
       default: 0,
-      required: true,
     },
     textPosition: {
       type: String,
-      default: "",
+      default: "fixed-text",
     },
     sections: {
       type: Array,

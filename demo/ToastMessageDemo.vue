@@ -40,11 +40,13 @@
     />
     <br />
     <ToastMessage
-      :messagesWrapper="toastMessages"
+      :messages-wrapper="toastMessages"
       ref="exampleToastMessage"
       @remove-msg-from-array="removeMsgFromArray"
     />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
+
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -56,11 +58,11 @@
 
 <script>
 import { computed, reactive, ref } from "vue";
-import { ToastMessage, CustomizedButton } from "../src";
+import { ToastMessage, CustomizedButton, DataTable } from "../src";
 
 export default {
   name: "ToastMessageDemo",
-  components: { ToastMessage, CustomizedButton },
+  components: { ToastMessage, CustomizedButton, DataTable },
   setup() {
     let toastMessages = reactive({
       messages: [],
@@ -118,7 +120,7 @@ export default {
     const insertCode = computed(() => {
       return `
 <ToastMessage
-    :messagesWrapper="toastMessages"
+    :messages-wrapper="toastMessages"
     ref="exampleToastMessage"
     @remove-msg-from-array="removeMsgFromArray"
 />
@@ -170,11 +172,63 @@ const removeMsgFromArray = (id) => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "messages-wrapper",
+            type: "Object",
+            required: "true",
+            default: "-",
+            description: "messages",
+          },
+          {
+            name: "ref",
+            type: "String",
+            required: "true",
+            default: "",
+            description: "identifier of message",
+          },
+
+          {
+            name: "remove-msg-from-array",
+            type: "<Event>",
+            required: "true",
+            default: "-",
+            description: "trigger remove message event",
+          },
+        ],
+      };
+    });
     return {
       toastMessages,
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       exampleToastMessage,
       popSuccessMessage,
       popWarningMessage,

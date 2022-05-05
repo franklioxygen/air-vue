@@ -45,7 +45,7 @@
       </template>
     </AccordionView>
   </div>
-
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -57,11 +57,11 @@
 
 <script>
 import { computed, reactive } from "vue";
-import { AccordionView } from "../src";
+import { AccordionView, DataTable } from "../src";
 
 export default {
   name: "AccordionViewDemo",
-  components: { AccordionView },
+  components: { AccordionView, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -126,6 +126,56 @@ let demo2AccordionsProps = reactive({
 });
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "id",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "identifier of the accordion",
+          },
+          {
+            name: "accordion-props",
+            type: "Object",
+            required: "true",
+            default: "-",
+            description: "accordion contents",
+          },
+          {
+            name: "expands",
+            type: "Array",
+            required: "false",
+            default: "-",
+            description: "which accordions are expanded",
+          },
+        ],
+      };
+    });
     let demo1AccordionsProps = reactive({
       accordions: [
         {
@@ -171,6 +221,7 @@ let demo2AccordionsProps = reactive({
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       demo1AccordionsProps,
       demo2AccordionsProps,
     };

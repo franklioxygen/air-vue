@@ -4,7 +4,7 @@
       :class="['av-button', level]"
       :style="buttonStyle"
       @click="clickButtonEmit"
-      :disabled="buttonProps.disabled"
+      :disabled="disabled"
     >
       {{ buttonText }}
     </button>
@@ -27,15 +27,15 @@ export default {
     },
     width: {
       type: String,
-      default: "",
+      default: "200px",
     },
     level: {
       type: String,
-      default: "primary",
+      default: "",
     },
-    buttonProps: {
-      type: Object,
-      default: () => ({}),
+    disabled: {
+      type: Boolean,
+      default: false,
       required: false,
     },
   },
@@ -76,6 +76,9 @@ export default {
     }
     &.av-btn-secondary {
       background-color: var(--color-background-soft);
+      &.av-btn-secondary:hover {
+        border: 2px solid var(--green);
+      }
     }
   }
   .av-button:enabled:active {
@@ -84,10 +87,10 @@ export default {
   .av-button:hover {
     box-sizing: border-box;
     color: var(--color-text-strong);
-    border: 2px solid var(--green);
+    border: 2px solid var(--color-background-soft);
   }
   .av-button:disabled {
-    color: var(--color-background-highlight);
+    background-color: var(--color-background-soft);
     border: 2px solid var(--color-background-mute);
     cursor: not-allowed;
   }

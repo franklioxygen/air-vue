@@ -46,6 +46,7 @@
       @click-button="loadMultiScreenModal()"
     />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -57,11 +58,11 @@
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
-import { ModalOverlay, CustomizedButton } from "../src";
+import { ModalOverlay, CustomizedButton, DataTable } from "../src";
 
 export default {
   name: "ModalOverlayDemo",
-  components: { ModalOverlay, CustomizedButton },
+  components: { ModalOverlay, CustomizedButton, DataTable },
   setup() {
     // define named slots modal example
     let modalProps = reactive({
@@ -206,6 +207,84 @@ const backScreen = () => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "opened",
+            type: "Boolean",
+            required: "false",
+            default: "false",
+            description: "modal is opened or not",
+          },
+          {
+            name: "backable",
+            type: "Boolean",
+            required: "false",
+            default: "false",
+            description: "is backable or not",
+          },
+          {
+            name: "height",
+            type: "String",
+            required: "false",
+            default: "400",
+            description: "modal height",
+          },
+          {
+            name: "width",
+            type: "String",
+            required: "false",
+            default: "400",
+            description: "modal width",
+          },
+          {
+            name: "back-screen",
+            type: "<Event>",
+            required: "true if backable",
+            default: "-",
+            description: "emit change content if back screen",
+          },
+          {
+            name: "modalProps",
+            type: "Object",
+            required: "false",
+            default: "-",
+            description: "modal content in template",
+          },
+          {
+            name: "dynamicComponent",
+            type: "Object",
+            required: "false",
+            default: "-",
+            description: "modal content in template",
+          },
+        ],
+      };
+    });
     return {
       modalProps,
       dynamicComponent,
@@ -217,6 +296,7 @@ const backScreen = () => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
     };
   },
 };

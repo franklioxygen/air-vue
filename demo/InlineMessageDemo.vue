@@ -38,6 +38,7 @@
       ref="exampleInlineMessage"
     />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -49,10 +50,10 @@
 
 <script>
 import { computed, reactive, ref } from "vue";
-import { InlineMessage, CustomizedButton } from "../src";
+import { InlineMessage, CustomizedButton, DataTable } from "../src";
 export default {
   name: "InlineMessageDemo",
-  components: { InlineMessage, CustomizedButton },
+  components: { InlineMessage, CustomizedButton, DataTable },
   setup() {
     let messageProps = reactive({
       type: "",
@@ -118,11 +119,69 @@ const popSuccessMessage = () => {
 ...
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "type",
+            type: "String",
+            required: "true",
+            default: "info",
+            description: "message type, include success, warning, failed, info",
+          },
+          {
+            name: "content",
+            type: "String",
+            required: "true",
+            default: "",
+            description: "content of message",
+          },
+          {
+            name: "expanded",
+            type: "Boolean",
+            required: "false",
+            default: "false",
+            description: "whether message is expanded",
+          },
+          {
+            name: "ref",
+            type: "String",
+            required: "true",
+            default: "",
+            description: "identifier of message",
+          },
+        ],
+      };
+    });
     return {
       messageProps,
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       exampleInlineMessage,
       popSuccessMessage,
       popWarningMessage,

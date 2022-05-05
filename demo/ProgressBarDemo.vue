@@ -5,20 +5,22 @@
   <div class="demo-wrapper">
     <!-- normal progress bar -->
     <p>This is a normal Progress Bar:</p>
-    <ProgressBar :currentProgress="80" />
+    <ProgressBar :current-progress="80" />
     <!-- float text progress bar -->
     <p>This is a float text Progress Bar:</p>
-    <ProgressBar :currentProgress="60" textPosition="float-text" />
+    <ProgressBar :current-progress="60" text-position="float-text" />
     <!-- fixed text progress bar -->
     <p>This is a fixed text Progress Bar:</p>
     <ProgressBar
-      :currentProgress="dynamicProgress.value"
-      textPosition="fixed-text"
+      :current-progress="dynamicProgress.value"
+      text-position="fixed-text"
     />
     <!-- sectional progress bar -->
     <p>This is a sectional Progress Bar:</p>
-    <ProgressBar :currentProgress="40" :sections="progressSections" />
+    <ProgressBar :current-progress="40" :sections="progressSections" />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
+
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -30,24 +32,24 @@
 
 <script>
 import { computed, onMounted, reactive } from "vue";
-import { ProgressBar } from "../src";
+import { ProgressBar, DataTable } from "../src";
 export default {
   name: "ProgressBarDemo",
-  components: { ProgressBar },
+  components: { ProgressBar, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
 <!-- normal progress bar -->
-<ProgressBar :currentProgress="80" />
+<ProgressBar :current-progress="80" />
 <!-- float text progress bar -->
-<ProgressBar :currentProgress="60" textPosition="float-text" />
+<ProgressBar :current-progress="60" text-position="float-text" />
 <!-- fixed text progress bar -->
 <ProgressBar
-    :currentProgress="dynamicProgress.value"
-    textPosition="fixed-text"
+    :current-progress="dynamicProgress.value"
+    text-position="fixed-text"
 />
 <!-- sectional progress bar -->
-<ProgressBar :currentProgress="40" :sections="progressSections" />
+<ProgressBar :current-progress="40" :sections="progressSections" />
       `;
     });
     const importCode = computed(() => {
@@ -73,6 +75,56 @@ let progressSections = computed(() => {
 });
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "current-progress",
+            type: "Number",
+            required: "false",
+            default: "0",
+            description: "current progress of bar",
+          },
+          {
+            name: "text-position",
+            type: "String",
+            required: "false",
+            default: "fixed-text",
+            description: "text position of bar",
+          },
+          {
+            name: "sections",
+            type: "Array",
+            required: "false",
+            default: "-",
+            description: "sections of progress",
+          },
+        ],
+      };
+    });
     // this is for dynamic progress
     let dynamicProgress = reactive({
       value: 0,
@@ -92,6 +144,7 @@ let progressSections = computed(() => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       progressSections,
       dynamicProgress,
     };

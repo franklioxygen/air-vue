@@ -102,7 +102,7 @@ const submitSearchEvent = (event) => {
           },
           {
             name: "search-props",
-            type: "Array",
+            type: "Object",
             required: "true",
             default: "-",
             description: "placeholder for the search",

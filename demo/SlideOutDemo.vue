@@ -45,6 +45,8 @@
       @click-button="loadMultiScreenSlideout()"
     />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
+
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -56,11 +58,11 @@
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
-import { SlideOut, CustomizedButton } from "../src";
+import { SlideOut, CustomizedButton, DataTable } from "../src";
 
 export default {
   name: "SlideOutDemo",
-  components: { SlideOut, CustomizedButton },
+  components: { SlideOut, CustomizedButton, DataTable },
   setup() {
     // define named slots slideout example
     let slideoutProps = reactive({
@@ -207,6 +209,77 @@ const backScreen = () => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "expanded",
+            type: "Boolean",
+            required: "false",
+            default: "false",
+            description: "slideout is expanded or not",
+          },
+          {
+            name: "backable",
+            type: "Boolean",
+            required: "false",
+            default: "false",
+            description: "is backable or not",
+          },
+          {
+            name: "slide",
+            type: "String",
+            required: "false",
+            default: "right",
+            description: "slide direction",
+          },
+          {
+            name: "back-screen",
+            type: "<Event>",
+            required: "true if backable",
+            default: "-",
+            description: "emit change content if back screen",
+          },
+          {
+            name: "slideoutProps",
+            type: "Object",
+            required: "false",
+            default: "-",
+            description: "slideout content in template",
+          },
+          {
+            name: "dynamicComponent",
+            type: "Object",
+            required: "false",
+            default: "-",
+            description: "slideout content in template",
+          },
+        ],
+      };
+    });
     return {
       slideoutProps,
       dynamicComponent,
@@ -218,6 +291,7 @@ const backScreen = () => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
     };
   },
 };

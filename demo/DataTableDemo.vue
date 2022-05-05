@@ -4,6 +4,7 @@
   <h5>Demo:</h5>
   <div class="demo-wrapper">
     <DataTable :table-props="tableProps" />
+    <DataTable :table-props="tablePropsGuide"></DataTable>
   </div>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
@@ -95,12 +96,49 @@ return {
         ],
       };
     });
+    const tablePropsGuide = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "table-props",
+            type: "Object",
+            required: "true",
+            default: "-",
+            description: "table head and content",
+          },
+        ],
+      };
+    });
 
     return {
       insertCode,
       importCode,
       templateCode,
       tableProps,
+      tablePropsGuide,
     };
   },
 };

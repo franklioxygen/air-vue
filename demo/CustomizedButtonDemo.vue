@@ -33,10 +33,11 @@
     <CustomizedButton
       id="demo-customized-button-3"
       button-text="Disabled Button"
-      :button-props="disabledButtonProps"
+      :disabled="disabledButtonProps"
       @click-button="clickButtonEvent"
     />
   </div>
+  <DataTable :table-props="tableProps"></DataTable>
   <h5>Usage:</h5>
   <h6>Insert component:</h6>
   <highlightjs language="html" :code="insertCode" />
@@ -47,10 +48,10 @@
 </template>
 <script>
 import { computed } from "vue";
-import { CustomizedButton } from "../src";
+import { CustomizedButton, DataTable } from "../src";
 export default {
   name: "CustomizedButtonDemo",
-  components: { CustomizedButton },
+  components: { CustomizedButton, DataTable },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -74,7 +75,7 @@ export default {
 <CustomizedButton
   id="demo-customized-button-3"
   button-text="Disabled Button"
-  :button-props="disabledButtonProps"
+  :disabled="disabledButtonProps"
   @click-button="clickButtonEvent"
 />
       `;
@@ -98,6 +99,77 @@ const clickButtonEvent = (event) => {
 };
       `;
     });
+    const tableProps = computed(() => {
+      return {
+        title: "Props/Events Guide", //optional
+        tableHead: [
+          {
+            label: "Name",
+            field: "name",
+          },
+          {
+            label: "Type",
+            field: "type",
+          },
+          {
+            label: "Required",
+            field: "required",
+          },
+          {
+            label: "Default",
+            field: "default",
+          },
+          {
+            label: "Description",
+            field: "description",
+          },
+        ],
+        tableBody: [
+          {
+            name: "id",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "identifier of the button",
+          },
+          {
+            name: "button-text",
+            type: "String",
+            required: "true",
+            default: "-",
+            description: "text on button",
+          },
+          {
+            name: "width",
+            type: "string",
+            required: "false",
+            default: "200px",
+            description: "width of the button",
+          },
+          {
+            name: "level",
+            type: "String",
+            required: "false",
+            default: "",
+            description: "button level",
+          },
+          {
+            name: "disabled",
+            type: "Boolean",
+            required: "false",
+            default: "false",
+            description: "button disabled",
+          },
+          {
+            name: "click-button",
+            type: "<Event>",
+            required: "true",
+            default: "-",
+            description: "event when button clicked",
+          },
+        ],
+      };
+    });
     const disabledButtonProps = computed(() => {
       return {
         disabled: true, // optional
@@ -113,6 +185,7 @@ const clickButtonEvent = (event) => {
       insertCode,
       importCode,
       templateCode,
+      tableProps,
       disabledButtonProps,
       clickButtonEvent,
     };
