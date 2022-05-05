@@ -1,4 +1,4 @@
-import{_ as i}from"./index.44d55d6b.js";import{s as a,f as l,o as c,c as u,g as r,F as m,a as e}from"./vendor.54853348.js";const d={name:"CustomizedButtonDemo",setup(){const o=a(()=>"npm install air-vue --save"),t=a(()=>`//main.js
+import{_ as i}from"./index.2f688c4f.js";import{s as a,f as l,o as c,c as u,g as r,F as m,a as e}from"./vendor.54853348.js";const d={name:"CustomizedButtonDemo",setup(){const o=a(()=>"npm install air-vue --save"),t=a(()=>`//main.js
 import "air-vue/dist/style.css";
 // App.vue 
 // Import a Component
