@@ -54,15 +54,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
 import { ModalOverlay, CustomizedButton, DataTable } from "../src";
-
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "ModalOverlayDemo",
-  components: { ModalOverlay, CustomizedButton, DataTable },
+  components: { ModalOverlay, CustomizedButton, DataTable, FooterMessage },
   setup() {
     // define named slots modal example
     let modalProps = reactive({

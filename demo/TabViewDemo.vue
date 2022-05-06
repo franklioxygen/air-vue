@@ -38,15 +38,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
 import { TabView, DataTable } from "../src";
-
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "TabViewDemo",
-  components: { TabView, DataTable },
+  components: { TabView, DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `

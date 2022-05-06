@@ -54,15 +54,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed, reactive, ref } from "vue";
 import { ToastMessage, CustomizedButton, DataTable } from "../src";
-
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "ToastMessageDemo",
-  components: { ToastMessage, CustomizedButton, DataTable },
+  components: { ToastMessage, CustomizedButton, DataTable, FooterMessage },
   setup() {
     let toastMessages = reactive({
       messages: [],

@@ -13,14 +13,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed } from "vue";
 import { BreadCrumb, DataTable } from "../src";
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "BreadCrumbDemo",
-  components: { BreadCrumb, DataTable },
+  components: { BreadCrumb, DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `
@@ -34,23 +36,23 @@ import { BreadCrumb } from "air-vue";
     });
     const templateCode = computed(() => {
       return `
-  const breadCrumbProps = computed(() => {
-    return [
-      {
-        name: "Home",
-        url: "#",
-        target: "_blank", //target default is parent
-      },
-      {
-        name: "Components",
-        url: "#",
-      },
-      {
-        name: "Bread Crumb",
-        url: "#",
-      },
-    ];
-  });
+const breadCrumbProps = computed(() => {
+  return [
+    {
+      name: "Home",
+      url: "#",
+      target: "_blank", //target default is parent
+    },
+    {
+      name: "Components",
+      url: "#",
+    },
+    {
+      name: "Bread Crumb",
+      url: "#",
+    },
+  ];
+});
       `;
     });
     const breadCrumbProps = computed(() => {

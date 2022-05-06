@@ -13,14 +13,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed } from "vue";
 import { DataTable } from "../src";
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "DataTableDemo",
-  components: { DataTable },
+  components: { DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `

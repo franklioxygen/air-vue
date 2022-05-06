@@ -53,15 +53,17 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed, reactive } from "vue";
 import { AccordionView, DataTable } from "../src";
+import FooterMessage from "./common/FooterMessage.vue";
 
 export default {
   name: "AccordionViewDemo",
-  components: { AccordionView, DataTable },
+  components: { AccordionView, DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `

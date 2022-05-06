@@ -13,10 +13,13 @@ https://franklioxygen.github.io/air-vue/
 
 ### Introduction
 
-Air Vue is a set of open source components library for Vue3
+Air Vue is a set of open source components library for Vue3.
 
 It's light weight and implemented with Composition API
 
+The vision of this project is to build a easy-to-use, responsive, accessible and performant UI library.
+
+Contributions are welcomed.
 
 ### Install
 

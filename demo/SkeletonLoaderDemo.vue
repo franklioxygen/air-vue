@@ -20,14 +20,16 @@
   <highlightjs language="html" :code="insertCode" />
   <h6>Import:</h6>
   <highlightjs language="js" :code="importCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed } from "vue";
 import { SkeletonLoader, DataTable } from "../src";
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "DropdownSelectDemo",
-  components: { SkeletonLoader, DataTable },
+  components: { SkeletonLoader, DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `

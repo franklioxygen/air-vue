@@ -54,15 +54,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed, reactive, defineAsyncComponent, markRaw } from "vue";
 import { SlideOut, CustomizedButton, DataTable } from "../src";
-
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "SlideOutDemo",
-  components: { SlideOut, CustomizedButton, DataTable },
+  components: { SlideOut, CustomizedButton, DataTable, FooterMessage },
   setup() {
     // define named slots slideout example
     let slideoutProps = reactive({

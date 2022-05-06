@@ -22,15 +22,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed } from "vue";
 import { ToggleSwitch, DataTable } from "../src";
-
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "ToggleSwitchDemo",
-  components: { ToggleSwitch, DataTable },
+  components: { ToggleSwitch, DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `

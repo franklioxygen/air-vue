@@ -45,13 +45,15 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 <script>
 import { computed } from "vue";
 import { CustomizedButton, DataTable } from "../src";
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "CustomizedButtonDemo",
-  components: { CustomizedButton, DataTable },
+  components: { CustomizedButton, DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `

@@ -22,14 +22,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed } from "vue";
 import { SearchBar, DataTable } from "../src";
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "SearchBarDemo",
-  components: { SearchBar, DataTable },
+  components: { SearchBar, DataTable, FooterMessage },
   setup() {
     const insertCode = computed(() => {
       return `

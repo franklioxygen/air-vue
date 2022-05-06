@@ -46,14 +46,16 @@
   <highlightjs language="js" :code="importCode" />
   <h6>Apply in template：</h6>
   <highlightjs language="js" :code="templateCode" />
+  <FooterMessage />
 </template>
 
 <script>
 import { computed, reactive, ref } from "vue";
 import { InlineMessage, CustomizedButton, DataTable } from "../src";
+import FooterMessage from "./common/FooterMessage.vue";
 export default {
   name: "InlineMessageDemo",
-  components: { InlineMessage, CustomizedButton, DataTable },
+  components: { InlineMessage, CustomizedButton, DataTable, FooterMessage },
   setup() {
     let messageProps = reactive({
       type: "",
