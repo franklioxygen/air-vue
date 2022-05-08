@@ -138,8 +138,6 @@ export default {
   position: relative;
   width: 100%;
   margin: 20px 0 20px 0;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
   user-select: none; /* Non-prefixed version, currently */
   .tube {
     @media only screen and (max-width: 640px) {
