@@ -1,4 +1,4 @@
-import{_ as m}from"./index.43206649.js";import{D as b}from"./deviceType.3fcb4f7a.js";import{s as l,f as n,o as u,c as _,a as e,g as a,F as h}from"./vendor.54853348.js";import{F as f}from"./FooterMessage.c0bea262.js";const g={name:"DataTableDemo",components:{DataTable:b,FooterMessage:f},setup(){const s=l(()=>`
+import{_ as m}from"./index.5623d7dc.js";import{D as b}from"./deviceType.c4ba19d5.js";import{s as l,f as n,o as u,c as _,a as e,g as a,F as h}from"./vendor.d9b9588d.js";import{F as f}from"./FooterMessage.1f52ea86.js";const g={name:"DataTableDemo",components:{DataTable:b,FooterMessage:f},setup(){const s=l(()=>`
 <DataTable :table-props="tableProps" />
       `),i=l(()=>`
 import { DataTable } from "air-vue";

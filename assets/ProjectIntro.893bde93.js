@@ -1,4 +1,4 @@
-import{F as l}from"./FooterMessage.c0bea262.js";import{_ as u}from"./index.43206649.js";import{s as a,f as i,o as p,c as m,g as o,F as d,a as e}from"./vendor.54853348.js";const _={name:"CustomizedButtonDemo",components:{FooterMessage:l},setup(){const t=a(()=>"npm install air-vue --save"),s=a(()=>`//main.js
+import{F as l}from"./FooterMessage.1f52ea86.js";import{_ as u}from"./index.5623d7dc.js";import{s as a,f as i,o as p,c as m,g as o,F as d,a as e}from"./vendor.d9b9588d.js";const _={name:"CustomizedButtonDemo",components:{FooterMessage:l},setup(){const t=a(()=>"npm install air-vue --save"),s=a(()=>`//main.js
 import "air-vue/dist/style.css";
 // App.vue 
 // Import a Component
