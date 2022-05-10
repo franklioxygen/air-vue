@@ -79,4 +79,9 @@ export default [
     path: "/breadCrumb",
     component: () => import("../demo/BreadCrumbDemo.vue"),
   },
+  {
+    name: "Flyout Menu",
+    path: "/flyoutMenu",
+    component: () => import("../demo/FlyoutMenuDemo.vue"),
+  },
 ];

@@ -14,5 +14,6 @@ export { default as ToggleSwitch } from "./components/ToggleSwitch.vue";
 export { default as TabView } from "./components/TabView.vue";
 export { default as AccordionView } from "./components/AccordionView.vue";
 export { default as BreadCrumb } from "./components/BreadCrumb.vue";
+export { default as FlyoutMenu } from "./components/FlyoutMenu.vue";
 
 export { isMobile, isDesktop } from "./utils/deviceType";
